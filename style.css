@@ -732,7 +732,6 @@ html {
 }
 
 .berita-poster {
-    height: 250px;
     overflow: hidden;
     position: relative;
     background: #f3f5f7;
@@ -791,7 +790,6 @@ html {
     margin-bottom: 1.5rem;
     flex-grow: 1;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
