@@ -669,7 +669,6 @@ html {
 }
 
 .berita-poster {
-    height: 220px;
     overflow: hidden;
     position: relative;
 }
@@ -679,10 +678,6 @@ html {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
-}
-
-.berita-card:hover .berita-poster img {
-    transform: scale(1.05);
 }
 
 .berita-kategori {
@@ -1206,10 +1201,6 @@ footer {
         padding: 1.5rem;
     }
     
-    .berita-poster {
-        height: 200px;
-    }
-    
     .berita-content {
         padding: 1.5rem;
     }
@@ -1333,10 +1324,6 @@ footer {
     .btn-view {
         width: 100%;
         justify-content: center;
-    }
-    
-    .berita-poster {
-        height: 180px;
     }
     
     .berita-kategori {
