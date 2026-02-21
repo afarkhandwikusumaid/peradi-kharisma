@@ -1,0 +1,245 @@
+/* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0.4rem 1.5rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 1.5rem 2rem;
+                transition: right 0.3s ease-in-out;
+                overflow-y: auto;
+                z-index: 1000;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-item {
+                width: 100%;
+                margin: 0;
+            }
+
+            .nav-link {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.85rem 0;
+                width: 100%;
+                font-size: 1rem;
+                border-bottom: 1px solid rgba(44, 76, 124, 0.1);
+                white-space: normal;
+            }
+
+            .nav-link i {
+                font-size: 0.9rem;
+            }
+
+            /* Mobile dropdown styling */
+            .dropdown,
+            .mega-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                display: none;
+                background: rgba(44, 76, 124, 0.02);
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-item.active .dropdown,
+            .nav-item.active .mega-menu {
+                display: block;
+            }
+
+            .dropdown a {
+                padding: 0.7rem 1rem;
+                border-bottom: 1px solid rgba(44, 76, 124, 0.05);
+            }
+
+            .dropdown a:last-child {
+                border-bottom: none;
+            }
+
+            .mega-item ul li a {
+                padding: 0.7rem 1rem;
+            }
+
+            .nav-menu .chat-btn {
+                margin-top: 1.5rem;
+                width: 100%;
+                justify-content: center;
+                padding: 1rem !important;
+            }
+
+            /* Hero section */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                text-align: center;
+            }
+
+            /* Grid sections */
+            .berita-grid,
+            .legal-grid,
+            .visi-misi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .visi-card,
+            .misi-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .visi-card h3,
+            .misi-card h3 {
+                font-size: 1.8rem;
+            }
+
+            /* CTA section */
+            .cta-wa {
+                clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+                padding: 4rem 0;
+            }
+
+            .cta-wa h3 {
+                font-size: 2rem;
+            }
+
+            .big-wa-btn {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* Modal */
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+
+            .berita-poster {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.35rem 1rem;
+                min-height: 60px;
+            }
+
+            .logo {
+                gap: 0.4rem;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .logo-text span {
+                display: none;
+            }
+
+            .logo-image {
+                width: 35px;
+                height: 35px;
+            }
+
+            .menu-toggle {
+                font-size: 1.5rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-menu {
+                width: 85%;
+                padding: 70px 1rem 2rem;
+            }
+
+            .nav-link {
+                padding: 0.7rem 0;
+                font-size: 0.95rem;
+            }
+
+            .chat-btn {
+                padding: 0.8rem !important;
+                font-size: 0.95rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .leader-avatar {
+                width: 150px;
+                height: 150px;
+            }
+
+            .leader-name {
+                font-size: 1.4rem;
+            }
+
+            .berita-poster {
+                height: 300px;
+            }
+        }
+
+        /* Animasi */
+        .fade-in {
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
