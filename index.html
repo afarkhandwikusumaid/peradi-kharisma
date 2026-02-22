@@ -6,77 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>PERADI Kharisma - Organisasi Advokat Terpercaya</title>
     <link rel="icon" href="asset/PERADI.png" type="image/png">
-    <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts - Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- ===== NAVIGASI ===== -->
-    <nav class="navbar">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
                 <img src="asset/PERADI.png" alt="PERADI Logo" class="logo-image">
                 <div class="logo-text">PERADI <span>KHARISMA</span></div>
             </div>
-
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Beranda</a>
-                    </li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
 
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                            Tentang Kami <i class="fas fa-chevron-down"></i>
-                        </a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Tentang Kami <i
+                                class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#visi-misi" class="dropdown-item">Visi & Misi</a></li>
+                            <li><a href="#visi-misi" class="dropdown-item">Visi &amp; Misi</a></li>
                             <li><a href="#struktur" class="dropdown-item">Struktur Organisasi</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                            Layanan <i class="fas fa-chevron-down"></i>
-                        </a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Layanan <i
+                                class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Pendidikan Khusus</a></li>
-                            <li><a href="#" class="dropdown-item">Ujian Profesi</a></li>
-                            <li><a href="#" class="dropdown-item">Sumpah Advokat</a></li>
-                            <li><a href="#" class="dropdown-item">Kartu Tanda Anggota</a></li>
-                            <li><a href="#" class="dropdown-item">Perpanjangan KTA</a></li>
+                            <li><a href="#buhaschool" class="dropdown-item">BuhaSchool</a></li>
+                            <li><a href="#lawoffice" class="dropdown-item">LawOffice</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-                            Legalitas <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">SK Kemenkumham</a></li>
-                            <li><a href="#" class="dropdown-item">Anggaran Dasar</a></li>
-                            <li><a href="#" class="dropdown-item">Anggaran Rumah Tangga</a></li>
-                            <li><a href="#" class="dropdown-item">Kode Etik</a></li>
-                            <li><a href="#" class="dropdown-item">Peraturan Organisasi</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a href="#legalitas" class="nav-link">Legalitas</a></li>
 
-                    <li class="nav-item">
-                        <a href="#berita" class="nav-link">Berita</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Kontak</a>
-                    </li>
+                    <li class="nav-item"><a href="#berita" class="nav-link">Berita</a></li>
+                    <li class="nav-item"><a href="#footer" class="nav-link">Kontak</a></li>
 
                     <li class="nav-item chat-item">
                         <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"
@@ -88,43 +60,37 @@
             </div>
         </div>
     </nav>
-    <!-- ===== NAVIGASI ===== -->
-
     <div class="nav-backdrop" id="navBackdrop"></div>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1><span>Sahabat Keadilan,</span>Benteng Profesi <br>Advokat Indonesia</h1>
+            <div class="hero-eyebrow"><span></span> Organisasi Advokat Indonesia <span></span></div>
+            <h1><em>Sahabat Keadilan,</em><br>Benteng Profesi<br>Advokat Indonesia</h1>
             <p>Komitmen transparan, mudah diakses, dan efisien. Bersama PERADI Kharisma, wujudkan penegakan hukum yang
                 bermartabat.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary">Selengkapnya</a>
-                <a href="#legalitas" class="btn-outline">Lihat Legalitas</a>
+                <a href="#visi-misi" class="btn-primary">Selengkapnya</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== VISI MISI SECTION ===== -->
+    <!-- ===== VISI MISI ===== -->
     <section class="visi-misi-section" id="visi-misi">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Arah & Tujuan</span>
-                <h2>Visi & Misi</h2>
+            <div class="section-header reveal">
+                <span class="section-tag">Arah &amp; Tujuan</span>
+                <h2>Visi &amp; Misi</h2>
             </div>
             <div class="visi-misi-grid">
-                <div class="visi-card">
-                    <div class="visi-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
+                <div class="visi-card reveal-left d1">
+                    <div class="visi-icon"><i class="fas fa-eye"></i></div>
                     <h3>Visi</h3>
                     <p>"Menjadi organisasi advokat terdepan yang profesional, berintegritas, dan berdedikasi dalam
                         mewujudkan supremasi hukum serta keadilan bagi seluruh masyarakat Indonesia."</p>
                 </div>
-                <div class="misi-card">
-                    <div class="misi-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
+                <div class="misi-card reveal-right d2">
+                    <div class="misi-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Misi</h3>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Mewujudkan Advokat Berintegritas dan Beretika Tinggi
@@ -142,29 +108,23 @@
         </div>
     </section>
 
-    <!-- ===== LEADERS SECTION ===== -->
+    <!-- ===== LEADERS ===== -->
     <section class="leaders-section" id="struktur">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">Our Leaders</span>
                 <h2>Pimpinan PERADI Kharisma</h2>
             </div>
             <div class="leaders-grid">
-                <!-- Ketua Umum -->
-                <div class="leader-card">
-                    <div class="leader-avatar">
-                        <img src="asset/ketum.png" alt="Ketua Umum">
-                    </div>
-                    <div class="leader-name">Buhari Sutarno, S.H.,Esq.</div>
+                <div class="leader-card reveal-scale d1">
+                    <div class="leader-avatar"><img src="asset/ketum.png" alt="Ketua Umum"></div>
+                    <div class="leader-name">Buhari Sutarno, S.H., Esq.</div>
                     <div class="leader-title">Ketua Umum</div>
                     <p>"Menjaga marwah profesi sebagai penegak hukum yang bebas, mandiri, dan bertanggung jawab."</p>
                 </div>
-                <!-- Sekretaris Jenderal -->
-                <div class="leader-card">
-                    <div class="leader-avatar">
-                        <img src="asset/sekjen.png" alt="Sekretaris Jenderal">
-                    </div>
-                    <div class="leader-name">Sri Evi Wulandari,S.H.,M. Si</div>
+                <div class="leader-card reveal-scale d2">
+                    <div class="leader-avatar"><img src="asset/sekjen.png" alt="Sekretaris Jenderal"></div>
+                    <div class="leader-name">Sri Evi Wulandari, S.H., M.Si</div>
                     <div class="leader-title">Sekretaris Jenderal</div>
                     <p>"Jantung operasional organisasi, mendukung visi Ketua Umum untuk Officium Nobile modern."</p>
                 </div>
@@ -172,208 +132,407 @@
         </div>
     </section>
 
-    <!-- ===== LEGALITAS SECTION ===== -->
+    <!-- ===== LEGALITAS — MULTI CARD ===== -->
     <section class="legalitas-section" id="legalitas">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Dokumen Resmi</span>
-                <h2>Legalitas & Dokumentasi</h2>
+            <div class="section-header reveal">
+                <span class="section-tag">Pedoman Resmi</span>
+                <h2>Legalitas &amp; Pedoman</h2>
             </div>
 
             <div class="legal-grid">
-                <!-- Card 1 - SK Kemenkumham -->
-                <div class="legal-card">
-                    <div class="legal-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="SK Kemenkumham">
-                        <span class="badge">Resmi</span>
+
+                <!-- Card 1 — SK Kemenkumham -->
+                <div class="legal-card reveal d1">
+                    <div class="legal-img-wrap">
+                        <img src="asset/legalitashukum.jpeg" alt="SK Kemenkumham">
+                        <span class="legal-badge">Resmi</span>
                     </div>
-                    <div class="legal-content">
-                        <div class="legal-category">SK Legalitas</div>
-                        <h3>SK Kemenkumham No. AHU-1234.AH.01.07.Tahun 2024</h3>
-                        <div class="legal-meta">
-                            <span><i class="far fa-calendar"></i> 15 Jan 2024</span>
-                            <span><i class="far fa-file-pdf"></i> PDF, 2.3 MB</span>
+                    <div class="legal-body">
+                        <div class="legal-cat">SK Legalitas</div>
+                        <h3>SK Kemenkumham No. AHU-0009182.AH.01.07.Tahun 2025</h3>
+                        <div class="legal-meta-row">
+                            <span><i class="far fa-calendar"></i> 24 Nov 2025</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Jakarta</span>
                         </div>
-                        <p>Pengesahan PERADI Kharisma sebagai Organisasi Advokat yang sah.</p>
-                        <div class="legal-footer">
-                            <a href="#" class="btn-download"><i class="fas fa-download"></i> Unduh</a>
-                            <a href="#" class="btn-view">Lihat <i class="fas fa-arrow-right"></i></a>
+                        <div class="legal-actions">
+                            <button class="btn-lv btn-lv-primary btn-view" data-image="asset/legalitashukum.jpeg"
+                                data-title="SK Kemenkumham No. AHU-0009182.AH.01.07.Tahun 2025"
+                                data-date="24 November 2025" data-location="Jakarta"
+                                data-nomor="AHU-0009182.AH.01.07.TAHUN 2025">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn-lv btn-lv-outline btn-download" data-image="asset/legalitashukum.jpeg"
+                                data-filename="SK-Kemenkumham-2025">
+                                <i class="fas fa-download"></i> Unduh
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 - Kode Etik -->
-                <div class="legal-card">
-                    <div class="legal-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Kode Etik Advokat">
-                        <span class="badge">Etika</span>
+                <!-- Card 2 — Kemenkumham -->
+                <div class="legal-card reveal d2">
+                    <div class="legal-img-wrap legal-img-navy">
+                        <img src="asset/logokemenkumham.png" alt="Logo Kemenkumham" class="legal-img-contain">
+                        <span class="legal-badge legal-badge-blue">Instansi</span>
                     </div>
-                    <div class="legal-content">
-                        <div class="legal-category">Kode Etik</div>
-                        <h3>Kode Etik Advokat PERADI Kharisma</h3>
-                        <div class="legal-meta">
-                            <span><i class="far fa-calendar"></i> 10 Feb 2024</span>
-                            <span><i class="far fa-file-pdf"></i> PDF, 1.8 MB</span>
+                    <div class="legal-body">
+                        <div class="legal-cat">Instansi Penerbit</div>
+                        <h3>Kementerian Hukum Republik Indonesia</h3>
+                        <div class="legal-meta-row">
+                            <span><i class="fas fa-shield-alt"></i> Pengayoman</span>
+                            <span><i class="fas fa-globe"></i> kemenkumham.go.id</span>
                         </div>
-                        <p>Pedoman perilaku dan standar profesional bagi seluruh anggota.</p>
-                        <div class="legal-footer">
-                            <a href="#" class="btn-download"><i class="fas fa-download"></i> Unduh</a>
-                            <a href="#" class="btn-view">Lihat <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 - Peraturan Organisasi -->
-                <div class="legal-card">
-                    <div class="legal-image">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Peraturan Organisasi">
-                        <span class="badge">Regulasi</span>
-                    </div>
-                    <div class="legal-content">
-                        <div class="legal-category">Peraturan</div>
-                        <h3>Peraturan Organisasi No. 01/2024</h3>
-                        <div class="legal-meta">
-                            <span><i class="far fa-calendar"></i> 20 Mar 2024</span>
-                            <span><i class="far fa-file-pdf"></i> PDF, 1.2 MB</span>
-                        </div>
-                        <p>Tata cara pengangkatan dan pemberhentian anggota Dewan Kehormatan.</p>
-                        <div class="legal-footer">
-                            <a href="#" class="btn-download"><i class="fas fa-download"></i> Unduh</a>
-                            <a href="#" class="btn-view">Lihat <i class="fas fa-arrow-right"></i></a>
+                        <div class="legal-actions">
+                            <button class="btn-lv btn-lv-primary btn-view" data-image="asset/logokemenkumham.png"
+                                data-title="Kementerian Hukum Republik Indonesia — Pengayoman">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <a class="btn-lv btn-lv-outline" href="https://ahu.go.id" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Verifikasi
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 4 - SK Kepengurusan -->
-                <div class="legal-card">
-                    <div class="legal-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="SK Kepengurusan">
-                        <span class="badge">Resmi</span>
+                <!-- Card 3 — Logo PERADI -->
+                <div class="legal-card reveal d3">
+                    <div class="legal-img-wrap legal-img-black">
+                        <img src="asset/PERADI.png" alt="PERADI Kharisma" class="legal-img-contain">
+                        <span class="legal-badge legal-badge-gold">Organisasi</span>
                     </div>
-                    <div class="legal-content">
-                        <div class="legal-category">SK Legalitas</div>
-                        <h3>SK Pengesahan Kepengurusan DPN 2024-2028</h3>
-                        <div class="legal-meta">
-                            <span><i class="far fa-calendar"></i> 5 Apr 2024</span>
-                            <span><i class="far fa-file-pdf"></i> PDF, 2.0 MB</span>
+                    <div class="legal-body">
+                        <div class="legal-cat">Identitas Organisasi</div>
+                        <h3>PERADI Kharisma — Peran Adil Berkharisma</h3>
+                        <div class="legal-meta-row">
+                            <span><i class="fas fa-balance-scale"></i> Organisasi Advokat</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Kab. Batang</span>
                         </div>
-                        <p>Pengesahan susunan Dewan Pimpinan Nasional masa bakti 2024-2028.</p>
-                        <div class="legal-footer">
-                            <a href="#" class="btn-download"><i class="fas fa-download"></i> Unduh</a>
-                            <a href="#" class="btn-view">Lihat <i class="fas fa-arrow-right"></i></a>
+                        <div class="legal-actions">
+                            <button class="btn-lv btn-lv-primary btn-view" data-image="asset/PERADI.png"
+                                data-title="PERADI Kharisma — Peran Adil Berkharisma">
+                                <i class="fas fa-eye"></i> Lihat
+                            </button>
+                            <button class="btn-lv btn-lv-outline btn-download" data-image="asset/PERADI.png"
+                                data-filename="Logo-PERADI-Kharisma">
+                                <i class="fas fa-download"></i> Unduh
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 5 - Peraturan Ujian -->
-                <div class="legal-card">
-                    <div class="legal-image">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Peraturan Ujian">
-                        <span class="badge">Akademik</span>
+                <!-- Card 4 — UU Advokat -->
+                <div class="legal-card reveal d1">
+                    <div class="legal-img-wrap legal-img-law">
+                        <div class="legal-icon-placeholder">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <span class="legal-badge">Landasan</span>
                     </div>
-                    <div class="legal-content">
-                        <div class="legal-category">Peraturan</div>
-                        <h3>Pedoman Ujian Profesi Advokat (UPA)</h3>
-                        <div class="legal-meta">
-                            <span><i class="far fa-calendar"></i> 15 Mei 2024</span>
-                            <span><i class="far fa-file-pdf"></i> PDF, 2.5 MB</span>
+                    <div class="legal-body">
+                        <div class="legal-cat">Landasan Hukum</div>
+                        <h3>Undang-Undang No. 18 Tahun 2003 tentang Advokat</h3>
+                        <div class="legal-meta-row">
+                            <span><i class="far fa-calendar"></i> 5 April 2003</span>
+                            <span><i class="fas fa-university"></i> DPR RI</span>
                         </div>
-                        <p>Tata cara, syarat, dan materi ujian profesi advokat.</p>
-                        <div class="legal-footer">
-                            <a href="#" class="btn-download"><i class="fas fa-download"></i> Unduh</a>
-                            <a href="#" class="btn-view">Lihat <i class="fas fa-arrow-right"></i></a>
+                        <div class="legal-actions">
+                            <a class="btn-lv btn-lv-primary"
+                                href="https://peraturan.bpk.go.id/Details/40644/uu-no-18-tahun-2003" target="_blank"
+                                rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Baca UU
+                            </a>
+                            <span class="btn-lv btn-lv-outline legal-status-tag">
+                                <i class="fas fa-check-circle"></i> Berlaku
+                            </span>
                         </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL LEGALITAS — PREMIUM -->
+    <div class="modal-legal" id="modalLegal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content-legal">
+            <!-- Header -->
+            <div class="modal-header-legal">
+                <div class="modal-header-info">
+                    <span class="modal-badge-legal"><i class="fas fa-shield-alt"></i> Dokumen Resmi</span>
+                    <h2 id="modalTitleLegal"></h2>
+                    <div class="modal-meta-legal" id="modalMetaLegal"></div>
+                </div>
+                <div class="modal-header-actions">
+                    <button class="modal-action-btn" id="zoomInBtn" title="Perbesar"><i
+                            class="fas fa-search-plus"></i></button>
+                    <button class="modal-action-btn" id="zoomOutBtn" title="Perkecil"><i
+                            class="fas fa-search-minus"></i></button>
+                    <button class="modal-action-btn" id="zoomResetBtn" title="Reset Zoom"><i
+                            class="fas fa-compress-arrows-alt"></i></button>
+                    <button class="modal-close-legal" id="modalCloseLegal" title="Tutup"><i
+                            class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <!-- Body — Dokumen -->
+            <div class="modal-body-legal" id="modalTabDokumen">
+                <div class="modal-img-container" id="modalImgContainer">
+                    <img id="modalImageLegal" src="" alt="Dokumen Legalitas">
+                </div>
+                <div class="modal-zoom-hint"><i class="fas fa-hand-point-up"></i> Klik gambar atau gunakan tombol zoom
+                    untuk memperbesar</div>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer-legal">
+                <div class="modal-footer-left">
+                </div>
+                <div class="modal-footer-btns">
+                    <button class="btn-lv btn-lv-outline" id="shareFromModal"><i class="fas fa-share-alt"></i>
+                        Bagikan</button>
+                    <button class="btn-lv btn-lv-primary" id="downloadFromModal"><i class="fas fa-download"></i> Unduh
+                        Dokumen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifikasi -->
+    <div class="toast-notif" id="toastNotif"></div>
+
+    <!-- ===== BUHASCHOOL ===== -->
+    <section class="buhaschool-section" id="buhaschool">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Layanan Pendidikan</span>
+                <h2>BuhaSchool</h2>
+            </div>
+
+            <div class="buhaschool-hero reveal d1">
+                <div class="buhaschool-hero-inner">
+                    <div class="school-badge"><i class="fas fa-graduation-cap"></i> Sekolah Khusus Advokat</div>
+                    <h3>Cetak Advokat <span>Profesional</span><br>Berstandar Nasional</h3>
+                    <p>BuhaSchool adalah pusat pendidikan dan pelatihan khusus advokat di bawah naungan PERADI Kharisma.
+                        Kami hadir dengan program terstruktur, pengajar berpengalaman, dan kurikulum sesuai UU No. 18
+                        Tahun 2003 tentang Advokat. Dari PKPA hingga Sumpah Advokat — kami dampingi setiap langkah
+                        perjalanan profesi Anda.</p>
+                    <div class="school-stats">
+                        <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Alumni
+                                Advokat</span></div>
+                        <div class="stat-item"><span class="stat-num">95%</span><span class="stat-label">Tingkat Lulus
+                                UPA</span></div>
+                        <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Pemateri
+                                Nasional</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-programs-grid">
+                <div class="program-card reveal d1">
+                    <div class="program-icon"><i class="fas fa-book-open"></i></div>
+                    <h4>PKPA – Pendidikan Khusus Profesi Advokat</h4>
+                    <p>Program wajib bagi sarjana hukum yang ingin menjadi advokat. Kurikulum komprehensif mencakup
+                        hukum acara, etika profesi, hingga praktik beracara di pengadilan.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag"><i class="far fa-clock"></i> 4 Hari</span>
+                        <span class="meta-tag gold"><i class="fas fa-video"></i> Online &amp; Offline</span>
+                        <span class="meta-tag"><i class="fas fa-certificate"></i> e-Sertifikat</span>
+                    </div>
+                </div>
+                <div class="program-card reveal d2">
+                    <div class="program-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>UPA – Ujian Profesi Advokat</h4>
+                    <p>Persiapan dan pelaksanaan ujian profesi advokat yang terstruktur. Tersedia kelas intensif,
+                        simulasi ujian, serta bimbingan hingga peserta dinyatakan lulus.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag gold"><i class="fas fa-star"></i> Garansi Lulus</span>
+                    </div>
+                </div>
+                <div class="program-card reveal d3">
+                    <div class="program-icon"><i class="fas fa-gavel"></i></div>
+                    <h4>Sumpah Advokat – Jawa Tengah</h4>
+                    <p>Proses sumpah resmi advokat di hadapan Pengadilan Tinggi Jawa Tengah. PERADI Kharisma
+                        memfasilitasi seluruh administrasi dan pendampingan prosesnya.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag"><i class="fas fa-map-marker-alt"></i> Jawa Tengah</span>
+                        <span class="meta-tag gold"><i class="fas fa-id-card"></i> KTA e-Money</span>
+                    </div>
+                </div>
+                <div class="program-card reveal d1">
+                    <div class="program-icon"><i class="fas fa-user-tie"></i></div>
+                    <h4>Diklat Sertifikasi Paralegal</h4>
+                    <p>Pelatihan untuk profesional yang ingin berkarir sebagai paralegal bersertifikat. Mencakup
+                        keparalegalan, surat kuasa, dan pendampingan hukum.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag"><i class="far fa-clock"></i> 2 Hari</span>
+                        <span class="meta-tag gold"><i class="fas fa-certificate"></i> Gelar C.PA</span>
+                        <span class="meta-tag"><i class="fas fa-video"></i> Via Zoom</span>
+                    </div>
+                </div>
+                <div class="program-card reveal d2">
+                    <div class="program-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h4>Workshop &amp; Seminar Hukum</h4>
+                    <p>Seminar tematik dan workshop praktis membahas isu hukum terkini, dipandu pakar hukum dan praktisi
+                        berpengalaman dari berbagai bidang.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag"><i class="fas fa-users"></i> Umum</span>
+                        <span class="meta-tag gold"><i class="fas fa-network-wired"></i> Networking</span>
+                    </div>
+                </div>
+                <div class="program-card reveal d3">
+                    <div class="program-icon"><i class="fas fa-layer-group"></i></div>
+                    <h4>Paket All-in-One Advokat</h4>
+                    <p>Paket lengkap PKPA + UPA + Sumpah Advokat dalam satu program terpadu. Solusi paling efisien
+                        menjadi advokat bersertifikat resmi dari awal hingga selesai.</p>
+                    <div class="program-meta">
+                        <span class="meta-tag gold"><i class="fas fa-fire"></i> Terlaris</span>
+                        <span class="meta-tag"><i class="fas fa-tags"></i> Harga Spesial</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== BERITA SECTION ===== -->
-    <section class="berita-section" id="berita">
+    <!-- ===== LAW OFFICE ===== -->
+    <section class="lawoffice-section" id="lawoffice">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Update Terkini</span>
-                <h2>Berita & Kegiatan</h2>
+            <div class="section-header reveal">
+                <span class="section-tag">Layanan Hukum</span>
+                <h2>LawOffice</h2>
             </div>
 
+            <div class="lawoffice-intro">
+                <div class="lawoffice-text reveal-left d1">
+                    <div class="tagline">Konsultasi &amp; Pendampingan Hukum</div>
+                    <h3>Solusi Hukum <span>Profesional</span><br>untuk Anda</h3>
+                    <p>LawOffice PERADI Kharisma menyediakan layanan hukum terpercaya untuk individu, keluarga, dan
+                        korporasi. Didukung advokat berpengalaman yang siap mendampingi setiap permasalahan hukum Anda
+                        dengan pendekatan profesional dan etis.</p>
+                    <p>Kami percaya setiap orang berhak mendapatkan akses keadilan dan pendampingan hukum berkualitas
+                        tanpa diskriminasi.</p>
+                </div>
+                <div class="lawoffice-visual reveal-right d2">
+                    <div class="lawoffice-quote">"Advokat adalah penegak hukum yang bebas dan mandiri. Sebuah profesi
+                        yang mulia — Officium Nobile — untuk membela keadilan dan hak setiap warga negara."</div>
+                    <div class="lawoffice-quote-author">— PERADI Kharisma</div>
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal d1">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="service-info">
+                        <h4>Konsultasi Hukum</h4>
+                        <p>Konsultasi mendalam mengenai permasalahan hukum Anda bersama advokat berpengalaman, langsung
+                            maupun online.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal d2">
+                    <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="service-info">
+                        <h4>Litigasi Perdata &amp; Pidana</h4>
+                        <p>Pendampingan dan pembelaan dalam persidangan perdata maupun pidana di semua tingkatan
+                            pengadilan Indonesia.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal d3">
+                    <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="service-info">
+                        <h4>Penyusunan Kontrak &amp; Perjanjian</h4>
+                        <p>Drafting, review, dan negosiasi kontrak bisnis, perjanjian kerja, MoU, dan berbagai dokumen
+                            hukum lainnya.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal d1">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <div class="service-info">
+                        <h4>Hukum Perusahaan &amp; Korporasi</h4>
+                        <p>Pendirian badan usaha, restructuring, M&amp;A, kepatuhan regulasi, dan konsultasi tata kelola
+                            perusahaan yang baik.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal d2">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <div class="service-info">
+                        <h4>Hukum Properti &amp; Pertanahan</h4>
+                        <p>Penyelesaian sengketa tanah, jual beli properti, pengurusan sertifikat, dan permasalahan
+                            pertanahan lainnya.</p>
+                    </div>
+                </div>
+                <div class="service-card reveal d3">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <div class="service-info">
+                        <h4>Mediasi &amp; Non-Litigasi</h4>
+                        <p>Penyelesaian sengketa di luar pengadilan melalui mediasi, arbitrase, dan negosiasi untuk
+                            solusi yang cepat dan efisien.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BERITA ===== -->
+    <section class="berita-section" id="berita">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Update Terkini</span>
+                <h2>Berita &amp; Kegiatan</h2>
+            </div>
             <div class="berita-grid">
-                <!-- Berita 1 -->
-                <div class="berita-card">
+                <div class="berita-card reveal d1">
                     <div class="berita-poster">
-                        <img src="asset/berita 1.jpg" alt="Pelantikan Advokat">
+                        <img src="asset/berita 1.jpg" alt="Sumpah Advokat 2026">
                         <span class="berita-kategori">Kegiatan</span>
                     </div>
                     <div class="berita-content">
-                        <div class="berita-meta">
-                            <span><i class="far fa-calendar"></i> Januari 2026</span>
-                            <span><i class="far fa-user"></i> Admin</span>
-                        </div>
+                        <div class="berita-meta"><span><i class="far fa-calendar"></i> Januari 2026</span><span><i
+                                    class="far fa-user"></i> Admin</span></div>
                         <h3>Sumpah Advokat PERADI Kharisma 2026</h3>
                         <p>Upacara pengambilan sumpah janji advokat yang sakral dan berkesan. Menandai dimulainya
                             perjalanan profesional para advokat baru dengan tanggung jawab menjaga kode etik dan marwah
                             profesi.</p>
                         <div class="berita-footer">
                             <a href="#" class="btn-berita">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                            <div class="berita-share">
-                                <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"><i
-                                        class="fab fa-whatsapp"></i></a>
-                            </div>
+                            <div class="berita-share"><a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA"
+                                    target="_blank"><i class="fab fa-whatsapp"></i></a></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Berita 2 -->
-                <div class="berita-card">
+                <div class="berita-card reveal d2">
                     <div class="berita-poster">
-                        <img src="asset/berita 2.jpg" alt="Seminar Hukum">
+                        <img src="asset/berita 2.jpg" alt="Diklat Paralegal">
                         <span class="berita-kategori">Seminar</span>
                     </div>
                     <div class="berita-content">
-                        <div class="berita-meta">
-                            <span><i class="far fa-calendar"></i> 15 Mei 2024</span>
-                            <span><i class="far fa-user"></i> Humas</span>
-                        </div>
+                        <div class="berita-meta"><span><i class="far fa-calendar"></i> 7–8 Feb 2026</span><span><i
+                                    class="far fa-user"></i> Humas</span></div>
                         <h3>Diklat Sertifikasi Paralegal PERADI Kharisma</h3>
                         <p>Program pelatihan intensif untuk mengembangkan skill paralegal profesional. Kurikulum
                             komprehensif mencakup praktik hukum, research, dan manajemen kantor advokat dengan
                             instruktur berpengalaman.</p>
                         <div class="berita-footer">
                             <a href="#" class="btn-berita">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                            <div class="berita-share">
-                                <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"><i
-                                        class="fab fa-whatsapp"></i></a>
-                            </div>
+                            <div class="berita-share"><a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA"
+                                    target="_blank"><i class="fab fa-whatsapp"></i></a></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Berita 3 -->
-                <div class="berita-card">
+                <div class="berita-card reveal d3">
                     <div class="berita-poster">
-                        <img src="asset/berita3.jpg" alt="Rapat Kerja">
-                        <span class="berita-kategori">Rapat</span>
+                        <img src="asset/berita3.jpg" alt="PKPA 2025">
+                        <span class="berita-kategori">Pendidikan</span>
                     </div>
                     <div class="berita-content">
-                        <div class="berita-meta">
-                            <span><i class="far fa-calendar"></i> 10 Mei 2024</span>
-                            <span><i class="far fa-user"></i> Sekretariat</span>
-                        </div>
-                        <h3>Pendidikan Khusus Profesi Advokat (PKPA) 2024</h3>
+                        <div class="berita-meta"><span><i class="far fa-calendar"></i> Des 2025</span><span><i
+                                    class="far fa-user"></i> Sekretariat</span></div>
+                        <h3>Pendidikan Khusus Profesi Advokat (PKPA) 2025</h3>
                         <p>Program pendidikan formal untuk calon advokat yang komprehensif dan terintegrasi. Mencakup
                             teori hukum, praktik, etika profesi, dan pelatihan case handling dari advanced
                             practitioners.</p>
                         <div class="berita-footer">
                             <a href="#" class="btn-berita">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                            <div class="berita-share">
-                                <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"><i
-                                        class="fab fa-whatsapp"></i></a>
-                            </div>
+                            <div class="berita-share"><a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA"
+                                    target="_blank"><i class="fab fa-whatsapp"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -381,32 +540,29 @@
         </div>
     </section>
 
-    <!-- ===== MODAL BERITA ===== -->
+    <!-- MODAL BERITA -->
     <div class="modal" id="modalBerita">
         <div class="modal-card">
             <div class="modal-header">
-                <div>
-                    <strong id="modalTitle">Judul Berita</strong>
-                    <div id="modalMeta" style="font-size:0.9rem;color:#5d6d7e;">Tanggal • Penulis</div>
+                <div><strong id="modalTitle">Judul Berita</strong>
+                    <div id="modalMeta"></div>
                 </div>
                 <button class="modal-close" id="modalClose">&times;</button>
             </div>
             <div class="modal-body">
+                <div><img id="modalImage" src="" alt="Gambar Berita"></div>
                 <div>
-                    <img id="modalImage" src="" alt="Gambar Berita">
-                </div>
-                <div>
-                    <p id="modalContent" style="color:#5d6d7e;line-height:1.7"></p>
+                    <p id="modalContent"></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== CTA WHATSAPP ===== -->
+    <!-- ===== CTA ===== -->
     <section class="cta-wa">
         <div class="container">
             <h3>Butuh informasi legalitas?</h3>
-            <p style="font-size: 1.3rem; opacity: 0.9;">Silahkan menghubungi kami melalui pesan Whatsapp.</p>
+            <p>Silahkan menghubungi kami melalui pesan WhatsApp.</p>
             <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank" class="big-wa-btn">
                 <i class="fab fa-whatsapp"></i> Chat Admin
             </a>
@@ -415,75 +571,67 @@
 
     <!-- ===== FOOTER ===== -->
     <footer>
-        <div class="container">
+        <div class="container" id="footer">
             <div class="footer-grid">
                 <div class="footer-col">
                     <img src="asset/PERADI.png" alt="PERADI Logo" class="footer-logo">
-                    <p style="margin: 1rem 0;">PERADI Kharisma adalah organisasi advokat yang berkomitmen pada penegakan
-                        hukum dan keadilan.</p>
+                    <p>PERADI Kharisma adalah organisasi advokat yang berkomitmen pada penegakan hukum dan keadilan bagi
+                        seluruh masyarakat Indonesia.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61588535250046" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h4>Tautan Cepat</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Beranda</a></li>
-                        <li><a href="#visi-misi"><i class="fas fa-chevron-right"></i> Visi & Misi</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#visi-misi"><i class="fas fa-chevron-right"></i> Visi &amp; Misi</a></li>
                         <li><a href="#struktur"><i class="fas fa-chevron-right"></i> Struktur Organisasi</a></li>
                         <li><a href="#legalitas"><i class="fas fa-chevron-right"></i> Legalitas</a></li>
                         <li><a href="#berita"><i class="fas fa-chevron-right"></i> Berita</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h4>Layanan</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> LawOffice</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ujian Profesi</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sumpah Advokat</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> KTA & Perpanjangan</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Konsultasi Hukum</a></li>
+                        <li><a href="#lawoffice"><i class="fas fa-chevron-right"></i> LawOffice</a></li>
+                        <li><a href="#buhaschool"><i class="fas fa-chevron-right"></i> BuhaSchool</a></li>
+                        <li><a href="#buhaschool"><i class="fas fa-chevron-right"></i> PKPA &amp; UPA</a></li>
+                        <li><a href="#buhaschool"><i class="fas fa-chevron-right"></i> Paralegal</a></li>
+                        <li><a href="#buhaschool"><i class="fas fa-chevron-right"></i> Sumpah Advokat</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-col">
-                    <h4>Legalitas</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> SK Kemenkumham</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Anggaran Dasar</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Anggaran Rumah Tangga</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kode Etik</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Peraturan Organisasi</a></li>
-                    </ul>
-                </div>
-
                 <div class="footer-col">
                     <h4>Kontak</h4>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Jalan Raya Tegalsari No. 107, Kel. Tegalsari, Kec.
-                            Kandeman, Kab. Batang – Jawa Tengah.</li>
-                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
-                        <li><i class="fas fa-envelope"></i> info@peradi-kharisma.org</li>
-                        <li><i class="fab fa-whatsapp"></i> +62 812 3456 7890</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span style="color:#8fa3b8; font-size:0.8rem;">Jalan Raya Tegalsari No. 107, Kel. Tegalsari,
+                                Kec. Kandeman, Kab. Batang – Jawa Tengah.</span>
+                        </li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/628567699908">085 676 999 08</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="http://www.peradi-kharisma.org"
+                                target="_blank">www.peradi-kharisma.org</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>© 2025 PERADI Kharisma - Organisasi Advokat. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Transformasi digital untuk advokat Indonesia yang
-                    modern dan berintegritas.</p>
+                <p>© 2026 PERADI Kharisma – Organisasi Advokat. All rights reserved.</p>
+                <p style="margin-top:0.3rem; opacity:0.6;">Transformasi digital untuk advokat Indonesia yang modern dan
+                    berintegritas.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Script JavaScript -->
+    <!-- WA Float -->
+    <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank" class="wa-float"
+        title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
     <script src="script.js"></script>
 </body>
 
