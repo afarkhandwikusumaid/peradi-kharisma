@@ -106,7 +106,6 @@
             </div>
         </div>
     </section>
-    <!-- ===== VISI MISI ===== -->
 
     <!-- ===== Struktur Organisasi ===== -->
     <section class="struktur-section" id="struktur">
@@ -120,13 +119,15 @@
                     <div class="struktur-avatar"><img src="asset/ketum.png" alt="Ketua Umum"></div>
                     <div class="struktur-name">Buhari Sutarno, S.H., Esq.</div>
                     <div class="struktur-title">Ketua Umum</div>
-                    <p>"Menjaga marwah profesi sebagai penegak hukum yang bebas, mandiri, dan bertanggung jawab."</p>
+                    <p class="struktur-quote">"Menjaga marwah profesi sebagai penegak hukum yang bebas, mandiri, dan
+                        bertanggung jawab."</p>
                 </div>
                 <div class="struktur-card reveal-scale d2">
                     <div class="struktur-avatar"><img src="asset/sekjen.png" alt="Sekretaris Jenderal"></div>
                     <div class="struktur-name">Sri Evi Wulandari, S.H., M.Si</div>
                     <div class="struktur-title">Sekretaris Jenderal</div>
-                    <p>"Jantung operasional organisasi, mendukung visi Ketua Umum untuk Officium Nobile modern."</p>
+                    <p class="struktur-quote">"Jantung operasional organisasi, mendukung visi Ketua Umum untuk Officium
+                        Nobile modern."</p>
                 </div>
             </div>
         </div>
@@ -353,7 +354,10 @@
 
             <div class="buhaschool-hero reveal d1">
                 <div class="buhaschool-hero-inner">
-                    <div class="school-badge"><i class="fas fa-graduation-cap"></i> Sekolah Khusus Advokat</div>
+                    <div class="buhaschool-logo-wrap">
+                        <img src="asset/buhalawschool.png" alt="PT Buha Law School Logo" class="buhaschool-logo-img">
+                        <div class="school-badge"><i class="fas fa-graduation-cap"></i> Sekolah Khusus Advokat</div>
+                    </div>
                     <h3>Cetak Advokat <span>Profesional</span><br>Berstandar Nasional</h3>
                     <p>BuhaSchool adalah pusat pendidikan dan pelatihan khusus advokat di bawah naungan PERADI KHARISMA.
                         Kami hadir dengan program terstruktur, pengajar berpengalaman, dan kurikulum sesuai UU No. 18
@@ -522,7 +526,51 @@
                 <h2>Berita &amp; Kegiatan</h2>
             </div>
             <div class="berita-grid">
+
+                <!--  BERITA BARU 1 — beritabaru1.jpeg (PKPA + UPA Maret 2026) -->
                 <div class="berita-card reveal d1">
+                    <div class="berita-poster">
+                        <img src="asset/beritabaru1.jpeg" alt="PKPA Pendidikan Khusus Profesi Advokat 2026">
+                        <span class="berita-kategori">Pendidikan</span>
+                    </div>
+                    <div class="berita-content">
+                        <div class="berita-meta"><span><i class="far fa-calendar"></i> 13–15 Maret 2026</span><span><i
+                                    class="far fa-user"></i> Admin</span></div>
+                        <h3>Pendidikan Khusus Profesi Advokat (PKPA) + UPA 2026</h3>
+                        <p>Program PKPA + UPA online via Zoom bersama pemateri nasional berpengalaman. Dapatkan
+                            e-Sertifikat, garansi mengulang UPA hingga lulus, Free KTA Paralegal, dan relasi advokat
+                            nasional. Harga spesial Rp 3.500.000.</p>
+                        <div class="berita-footer">
+                            <a href="#" class="btn-berita">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            <div class="berita-share"><a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA"
+                                    target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ✅ BERITA BARU 2 — beritabaru2.jpeg (Paralegal #4) -->
+                <div class="berita-card reveal d2">
+                    <div class="berita-poster">
+                        <img src="asset/beritabaru2.jpeg" alt="Diklat Paralegal #4">
+                        <span class="berita-kategori">Seminar</span>
+                    </div>
+                    <div class="berita-content">
+                        <div class="berita-meta"><span><i class="far fa-calendar"></i> 13–15 Maret 2026</span><span><i
+                                    class="far fa-user"></i> Humas</span></div>
+                        <h3>Paralegal #4 — Diklat Ilmu Hukum PERADI KHARISMA</h3>
+                        <p>Diklat Sertifikasi Paralegal batch ke-4 secara online via Zoom. Materi mencakup
+                            keparalegalan, hukum pidana, hukum perdata, pendampingan hukum anak, dan publik hukum.
+                            Raih gelar CPP dengan harga spesial Rp 250.000.</p>
+                        <div class="berita-footer">
+                            <a href="#" class="btn-berita">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                            <div class="berita-share"><a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA"
+                                    target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BERITA LAMA 1 — tetap -->
+                <div class="berita-card reveal d3">
                     <div class="berita-poster">
                         <img src="asset/berita 1.jpg" alt="Sumpah Advokat 2026">
                         <span class="berita-kategori">Kegiatan</span>
@@ -541,7 +589,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="berita-card reveal d2">
+
+                <!-- BERITA LAMA 2 — tetap -->
+                <div class="berita-card reveal d1">
                     <div class="berita-poster">
                         <img src="asset/berita 2.jpg" alt="Diklat Paralegal">
                         <span class="berita-kategori">Seminar</span>
@@ -560,7 +610,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="berita-card reveal d3">
+
+                <!-- BERITA LAMA 3 — tetap -->
+                <div class="berita-card reveal d2">
                     <div class="berita-poster">
                         <img src="asset/berita3.jpg" alt="PKPA 2025">
                         <span class="berita-kategori">Pendidikan</span>
@@ -579,9 +631,11 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- MODAL BERITA -->
     <div class="modal" id="modalBerita">
@@ -617,7 +671,7 @@
         <div class="container" id="footer">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="asset/PERADI.png" alt="PERADI Logo" class="footer-logo">
+                    <img src="asset/logoperadi.PNG" alt="PERADI Logo" class="footer-logo">
                     <p>PERADI KHARISMA adalah organisasi advokat yang berkomitmen pada penegakan hukum dan keadilan bagi
                         seluruh masyarakat Indonesia.</p>
                     <div class="social-links">
@@ -655,8 +709,8 @@
                                 Kec. Kandeman, Kab. Batang – Jawa Tengah.</span>
                         </li>
                         <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/628567699908">085 676 999 08</a></li>
-                        <li><i class="fas fa-globe"></i> <a href="http://www.peradi-kharisma.org"
-                                target="_blank">www.peradi-kharisma.org</a></li>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:peradikharisma@gmail.com">peradikharisma@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
