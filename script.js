@@ -96,13 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.querySelectorAll('.nav-list a:not(.dropdown-toggle)').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function() {
             if (window.innerWidth <= 1023) {
-                if (!this.closest('.dropdown-menu')) {
-                    setTimeout(closeMenu, 200);
-                } else {
-                    setTimeout(closeMenu, 200);
-                }
+                closeMenu();
             }
         });
     });
@@ -475,12 +471,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ORIENTATION CHANGE =====
     window.addEventListener('orientationchange', function() {
         if (navMenu.classList.contains('active')) {
-            setTimeout(() => {
-                closeMenu();
-            }, 200);
+            closeMenu();
         }
     });
     
+
+    // ===== MODAL SURAT PERNYATAAN =====
+    const modalSurat = document.getElementById('modalSurat');
+    const modalCloseSurat = document.getElementById('modalCloseSurat');
+    const modalOverlaySurat = modalSurat ? modalSurat.querySelector('.modal-overlay-surat') : null;
+
+    function openModalSurat() {
+        if (!modalSurat) return;
+        modalSurat.classList.add('active');
+        body.style.overflow = 'hidden';
+    }
+    function closeModalSurat() {
+        if (!modalSurat) return;
+        modalSurat.classList.remove('active');
+        body.style.overflow = '';
+    }
+    document.querySelectorAll('.btn-preview-surat').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModalSurat();
+        });
+    });
+    if (modalCloseSurat) modalCloseSurat.addEventListener('click', closeModalSurat);
+    if (modalOverlaySurat) modalOverlaySurat.addEventListener('click', closeModalSurat);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalSurat && modalSurat.classList.contains('active')) closeModalSurat();
+    });
+
     console.log('PERADI Kharisma website loaded successfully!');
 });
 // ===== SCROLL REVEAL =====
