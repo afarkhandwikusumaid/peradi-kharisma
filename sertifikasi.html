@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Database Sertifikasi — PERADI KHARISMA</title>
+    <link rel="icon" href="asset/PERADI.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: var(--navbar-h, 72px);
+            background: #f4f6f9;
+        }
+
+        /* ── HERO ── */
+        .sert-hero {
+            background: linear-gradient(115deg, rgba(10, 35, 66, 0.97) 0%, rgba(44, 76, 124, 0.92) 60%, rgba(10, 35, 66, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 3rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sert-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 240px;
+            height: 240px;
+            border: 50px solid rgba(201, 169, 89, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sert-hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sert-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid rgba(201, 169, 89, 0.35);
+            border-radius: 50px;
+            padding: 0.35rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--secondary);
+        }
+
+        .sert-eyebrow span {
+            width: 18px;
+            height: 1px;
+            background: var(--secondary);
+        }
+
+        .sert-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 0.6rem;
+        }
+
+        .sert-hero h1 em {
+            color: var(--secondary);
+            font-style: normal;
+        }
+
+        .sert-hero p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-weight: 300;
+            margin-bottom: 1.8rem;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .hs-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .hs-label {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        .btn-admin-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-admin-hero:hover {
+            background: rgba(201, 169, 89, 0.2);
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-admin-hero.active-admin {
+            background: rgba(201, 169, 89, 0.25);
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* ── ADMIN BAR ── */
+        .admin-bar {
+            background: var(--primary);
+            padding: 0.6rem 1.25rem;
+            display: none;
+        }
+
+        .admin-bar.show {
+            display: block;
+        }
+
+        .admin-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .admin-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-logout {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ── MAIN ── */
+        .sert-main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.25rem 4rem;
+        }
+
+        .sect-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--secondary-dark);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sect-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-light);
+        }
+
+        /* ── BATCH GRID ── */
+        .batch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .batch-card {
+            background: #fff;
+            border-radius: 20px;
+            border: 1px solid var(--gray-light);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+
+        .batch-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(201, 169, 89, 0.3);
+        }
+
+        .batch-card-head {
+            background: var(--primary);
+            padding: 1.3rem 1.5rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .batch-card-head::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            width: 90px;
+            height: 90px;
+            border: 20px solid rgba(201, 169, 89, 0.1);
+            border-radius: 50%;
+        }
+
+        .batch-num-tag {
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .batch-title-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .batch-meta-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .batch-meta-row span {
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .batch-card-body {
+            padding: 1.25rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .batch-kpi {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .kpi-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .kpi-label {
+            font-size: 0.6rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 0.1rem;
+        }
+
+        .qr-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qr-box {
+            width: 130px;
+            height: 130px;
+            background: #fff;
+            border: 2px solid var(--gray-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .qr-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .qr-hint {
+            font-size: 0.63rem;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        .batch-actions {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .btn-view-batch {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.74rem;
+            padding: 0.62rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-view-batch:hover {
+            background: var(--primary-soft);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .btn-edit-batch {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            border: 1.5px solid var(--gray-light);
+            color: var(--gray);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.74rem;
+            padding: 0.62rem 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s;
+            background: #fff;
+        }
+
+        .btn-edit-batch:hover {
+            border-color: var(--secondary-dark);
+            color: var(--secondary-dark);
+        }
+
+        /* ADD CARD */
+        .batch-card-add {
+            background: #fff;
+            border-radius: 20px;
+            border: 2px dashed var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+            gap: 0.75rem;
+            min-height: 300px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .batch-card-add:hover {
+            border-color: var(--secondary);
+            background: #fffdf7;
+        }
+
+        .add-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .batch-card-add:hover .add-icon {
+            background: rgba(201, 169, 89, 0.12);
+        }
+
+        .add-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-soft);
+        }
+
+        .batch-card-add p {
+            font-size: 0.82rem;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .batch-card-add small {
+            font-size: 0.7rem;
+            color: var(--secondary-dark);
+            font-style: italic;
+        }
+
+        /* ── DETAIL VIEW ── */
+        .detail-view {
+            display: none;
+        }
+
+        .detail-view.active {
+            display: block;
+        }
+
+        .back-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #fff;
+            border: 1.5px solid var(--gray-light);
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .btn-back:hover {
+            border-color: var(--primary);
+            transform: translateX(-2px);
+        }
+
+        .detail-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .drive-btns {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-drive {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.74rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+
+        .btn-drive-gold {
+            background: var(--secondary);
+            color: var(--primary);
+            box-shadow: 0 4px 14px rgba(201, 169, 89, 0.3);
+        }
+
+        .btn-drive-gold:hover {
+            background: #d9bb6f;
+            transform: translateY(-2px);
+            color: var(--primary);
+        }
+
+        .btn-drive-outline2 {
+            border: 1.5px solid var(--gray-light);
+            color: var(--gray);
+            background: #fff;
+        }
+
+        .btn-drive-outline2:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ── SEARCH BAR ── */
+        .search-bar {
+            background: #fff;
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-wrap {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-ico {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 0.82rem;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.65rem 2.2rem 0.65rem 2.4rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.83rem;
+            color: var(--primary);
+            outline: none;
+            transition: all 0.25s;
+            background: var(--light);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-soft);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(44, 76, 124, 0.08);
+        }
+
+        .search-input::placeholder {
+            color: #aab;
+        }
+
+        .btn-clr {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.75rem;
+            width: 20px;
+            height: 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .btn-clr.show {
+            display: flex;
+        }
+
+        .search-meta-txt {
+            font-size: 0.73rem;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .search-meta-txt strong {
+            color: var(--primary);
+        }
+
+        /* ── TABLE ── */
+        .table-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+
+        .table-head {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            background: var(--primary);
+            color: var(--secondary);
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.82rem 1.4rem;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            padding: 0.82rem 1.4rem;
+            border-bottom: 1px solid var(--gray-light);
+            align-items: center;
+            transition: background 0.15s;
+            animation: rowIn 0.25s ease both;
+        }
+
+        @keyframes rowIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:hover {
+            background: #fafbff;
+        }
+
+        .table-row:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .table-row:nth-child(even):hover {
+            background: #f3f5ff;
+        }
+
+        .row-no {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-soft);
+        }
+
+        .row-nama {
+            font-size: 0.87rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .row-nama mark {
+            background: rgba(201, 169, 89, 0.25);
+            color: var(--primary);
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--gray);
+            display: none;
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            opacity: 0.2;
+            margin-bottom: 0.8rem;
+            display: block;
+            color: var(--primary);
+        }
+
+        .empty-state p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 18, 40, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 24px 80px rgba(10, 35, 66, 0.3);
+            width: 100%;
+            max-width: 520px;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s cubic-bezier(.4, 0, .2, 1);
+            overflow: hidden;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-head {
+            padding: 1.2rem 1.5rem 1rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-shrink: 0;
+        }
+
+        .modal-head h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .modal-head p {
+            font-size: 0.74rem;
+            color: var(--gray);
+            margin-top: 0.2rem;
+        }
+
+        .btn-modal-close {
+            background: none;
+            border: 1px solid var(--gray-light);
+            color: var(--gray);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .btn-modal-close:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+
+        .modal-body-m {
+            padding: 1.25rem 1.5rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-foot {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            justify-content: flex-end;
+        }
+
+        /* FORMS */
+        .login-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .login-icon i {
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.72rem 1rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--primary);
+            outline: none;
+            transition: all 0.25s;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-soft);
+            box-shadow: 0 0 0 3px rgba(44, 76, 124, 0.08);
+        }
+
+        .form-error {
+            font-size: 0.72rem;
+            color: #dc2626;
+            margin-top: 0.4rem;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.72rem 1rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            color: var(--primary);
+            outline: none;
+            transition: all 0.25s;
+            resize: vertical;
+            min-height: 160px;
+            line-height: 1.7;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--primary-soft);
+            box-shadow: 0 0 0 3px rgba(44, 76, 124, 0.08);
+        }
+
+        .paste-hint {
+            background: rgba(201, 169, 89, 0.08);
+            border: 1px solid rgba(201, 169, 89, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.74rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .paste-hint strong {
+            color: var(--primary);
+        }
+
+        .preview-count {
+            font-size: 0.74rem;
+            color: var(--primary-soft);
+            font-weight: 600;
+            margin-top: 0.4rem;
+        }
+
+        /* BTN */
+        .btn-prim {
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-prim:hover {
+            background: var(--primary-soft);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: var(--secondary);
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: 0 4px 14px rgba(201, 169, 89, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: #d9bb6f;
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: #fff;
+            color: var(--gray);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--gray-light);
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-danger {
+            background: #fee2e2;
+            color: #dc2626;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.76rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .btn-danger:hover {
+            background: #fecaca;
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--primary);
+            color: #fff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(10, 35, 66, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            background: #16a34a;
+        }
+
+        .toast.danger {
+            background: #dc2626;
+        }
+
+        .page-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.72rem;
+            color: var(--gray);
+            opacity: 0.7;
+        }
+
+        .page-note span {
+            color: var(--secondary-dark);
+            font-weight: 700;
+        }
+
+        @media (max-width:600px) {
+            .sert-hero h1 {
+                font-size: 1.85rem;
+            }
+
+            .batch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-box {
+                max-width: 96vw;
+                max-height: 96vh;
+                border-radius: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="asset/logoperadi.PNG" alt="PERADI Logo" class="logo-image"></div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Beranda</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Tentang Kami <i
+                                class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#visi-misi" class="dropdown-item">Visi &amp; Misi</a></li>
+                            <li><a href="index.html#struktur" class="dropdown-item">Struktur Organisasi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Layanan <i
+                                class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#buhaschool" class="dropdown-item">BuhaLawSchool</a></li>
+                            <li><a href="index.html#lawoffice" class="dropdown-item">LawOffice</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="index.html#legalitas" class="nav-link">Legalitas</a></li>
+                    <li class="nav-item"><a href="index.html#berita" class="nav-link">Berita</a></li>
+                    <li class="nav-item"><a href="index.html#footer" class="nav-link">Kontak</a></li>
+                    <li class="nav-item chat-item">
+                        <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"
+                            class="chat-btn">
+                            <i class="fab fa-whatsapp"></i> <span>Open Chat</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- ── ADMIN BAR ── -->
+    <div class="admin-bar" id="adminBar">
+        <div class="admin-bar-inner">
+            <div class="admin-badge"><i class="fas fa-shield-alt"></i> Mode Admin Aktif — PERADI KHARISMA</div>
+            <button class="btn-logout" id="btnLogout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section class="sert-hero">
+        <div class="sert-hero-inner">
+            <div class="sert-eyebrow"><span></span> Database Resmi PERADI KHARISMA <span></span></div>
+            <h1><em>Database Peserta</em><br>Sertifikasi</h1>
+            <p>Pilih batch untuk melihat daftar peserta. Scan QR Code untuk akses cepat via smartphone.</p>
+            <button class="btn-admin-hero" id="btnOpenAdmin">
+                <i class="fas fa-lock"></i> Login Admin
+            </button>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="hs-num" id="statBatch">0</span><span class="hs-label">Total
+                        Batch</span></div>
+                <div class="stat-item"><span class="hs-num" id="statPeserta">0</span><span class="hs-label">Total
+                        Peserta</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MAIN ── -->
+    <div class="sert-main">
+        <div id="indexView">
+            <div class="sect-label">Daftar Batch Sertifikasi</div>
+            <div class="batch-grid" id="batchGrid"></div>
+        </div>
+
+        <div class="detail-view" id="detailView">
+            <div class="back-row">
+                <button class="btn-back" id="btnBack"><i class="fas fa-arrow-left"></i> Semua Batch</button>
+                <span class="detail-title" id="detailTitle"></span>
+            </div>
+            <div class="drive-btns" id="driveBtns"></div>
+            <div class="search-bar">
+                <div class="search-wrap">
+                    <i class="fas fa-search search-ico"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Cari nama peserta..."
+                        autocomplete="off" spellcheck="false">
+                    <button class="btn-clr" id="btnClr"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="search-meta-txt">Tampil: <strong id="searchCount">0</strong></div>
+            </div>
+            <div class="table-card">
+                <div class="table-head">
+                    <div>No.</div>
+                    <div>Nama Peserta</div>
+                </div>
+                <div class="table-body" id="tableBody"></div>
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-search"></i>
+                    <p>Tidak ditemukan "<span id="emptyQ"></span>"</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="page-note">Halaman ini bersifat <span>PRIVATE</span> — PERADI KHARISMA © 2026</p>
+    </div>
+
+    <!-- ── MODAL: LOGIN ── -->
+    <div class="modal-overlay" id="modalLogin">
+        <div class="modal-box" style="max-width:380px;">
+            <div class="modal-head">
+                <div>
+                    <h3>Login Admin</h3>
+                    <p>Masukkan password untuk melanjutkan</p>
+                </div>
+                <button class="btn-modal-close" id="closeLogin"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body-m">
+                <div class="login-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="form-group">
+                    <label>Password Admin</label>
+                    <input type="password" class="form-input" id="inputPassword" placeholder="Masukkan password..."
+                        autocomplete="current-password">
+                    <div class="form-error" id="pwError">Password salah. Coba lagi.</div>
+                </div>
+            </div>
+            <div class="modal-foot">
+                <button class="btn-ghost" id="cancelLogin">Batal</button>
+                <button class="btn-prim" id="doLogin"><i class="fas fa-unlock"></i> Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── MODAL: TAMBAH / EDIT BATCH ── -->
+    <div class="modal-overlay" id="modalBatch">
+        <div class="modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3 id="modalBatchTitle">Tambah Batch Baru</h3>
+                    <p id="modalBatchSub">Isi data batch dan paste daftar nama</p>
+                </div>
+                <button class="btn-modal-close" id="closeBatch"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body-m">
+                <div class="form-group">
+                    <label>Nama Batch</label>
+                    <input type="text" class="form-input" id="inputBatchName"
+                        placeholder="cth: Paralegal &amp; CPP 2026">
+                </div>
+                <div class="form-group">
+                    <label>Nomor Batch (untuk URL halaman)</label>
+                    <input type="number" class="form-input" id="inputBatchNum" placeholder="cth: 1" min="1">
+                    <div style="font-size:0.7rem;color:var(--gray);margin-top:0.3rem;">Akan membuka halaman
+                        <strong>batch<span id="previewUrl">N</span>.html</strong>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Tahun</label>
+                    <input type="text" class="form-input" id="inputBatchYear" placeholder="cth: 2026" maxlength="4">
+                </div>
+                <div class="form-group">
+                    <label>Link Drive Sertifikasi</label>
+                    <input type="text" class="form-input" id="inputDriveSert"
+                        placeholder="https://drive.google.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Link Drive KTA</label>
+                    <input type="text" class="form-input" id="inputDriveKta" placeholder="https://drive.google.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Daftar Nama Peserta</label>
+                    <div class="paste-hint">
+                        <strong>Cara paste:</strong> Salin semua nama dari dokumen/chat, lalu paste di bawah.<br>
+                        Satu baris = satu peserta. Baris kosong otomatis diabaikan.
+                    </div>
+                    <textarea class="form-textarea" id="inputNama"
+                        placeholder="Contoh:&#10;Ahmad Fauzi, S.H., CPP.&#10;Budi Santoso, S.H., CPP.&#10;..."></textarea>
+                    <div class="preview-count" id="previewCount"></div>
+                </div>
+            </div>
+            <div class="modal-foot">
+                <button class="btn-ghost" id="cancelBatch">Batal</button>
+                <button class="btn-danger" id="btnDeleteBatch" style="margin-right:auto;display:none;"><i
+                        class="fas fa-trash"></i> Hapus Batch</button>
+                <button class="btn-gold" id="saveBatch"><i class="fas fa-save"></i> Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TOAST ── -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ================================================================
+        // KONFIGURASI
+        // ================================================================
+        var ADMIN_PASS = 'peradi2026';   // ✏️ Ganti password ini
+        var STORAGE_KEY = 'peradi_sertifikasi_v2';
+        // ================================================================
+
+        var state = { isAdmin: false, batches: [], activeBatch: null, editingBatch: null };
+
+        // ── SEED DATA ────────────────────────────────────────────────
+        var SEED = [
+            {
+                id: 'batch1', batchNum: 1, name: 'Paralegal & C.CPL', year: '2025',
+                driveSert: '', driveKta: '',
+                peserta: [
+                    "Setia Wati, CPP., C.CPL.", "Erinaldi, S.ST., CPP.", "Oktonius Ndruru, S.H., CPP.",
+                    "Moh. Ainul Yaqin, S.Pd.I., CPP.", "Nina Christiana, S.H., CPP.", "Dwi Setiyono, S.H., CPP.",
+                    "Muhammad Rifqi Riza, C.PS., CPP.", "Peri Kurnia Hidayat, S.Pi., C.CPL.",
+                    "Edi Samsuri, S.Fil.I., S.H., C.CPL.", "Chintia Mutiara Dewi, S.H., C.CPL.",
+                    "Kusdianto, S.H., C.CPL.", "Zul Arifin, C.CPL.", "Sumidi, S.Sos., CPP., C.CPL.",
+                    "Muhammad Aswan Kelian, S.H., CPP., C.CPL.", "Hadi Susanto, C.CPL.",
+                    "Heri Ferianto, C.CPL.", "Lendra Erfanta Miantaka, C.CPL.", "Imam Afkiri, CPP., C.CPL.",
+                    "Riadi, S.M., CPP.", "Rizki Abdul Jabbar, S.H., CPP.", "Jupriadil, A.Md., CPP.",
+                    "Usnin Kusuma, CPP.", "Raden Dimas Tri Nugroho, S.H., M.H., CPP.",
+                    "Sandri Ramadhan Oktaviano, CPP.", "Mayer Ricardo Sagala, S.E., CTA., CPP.",
+                    "Panji Satrio Kinasih, S.H., CPP.", "Ripa Mahal Kabul Izati, S.H., CPP.",
+                    "Dr (C). Ir. Arsenius, A.P.T., S.T., S.Sos., M.B.A., M.H., C.CPL.",
+                    "Happy Ari Kurniawan, S.H., C.CPL.", "Soni Hendrawan, M.B.A., CPLA., CPP.",
+                    "Fahri Ade Susilo, CPP.", "Shilpi Yanti, A.Md., CPP.", "Hary Murdianto, S.H., CPP.",
+                    "Daimatun Nafi'ah, S.H., CPP.", "Titi Herlina, S.I.Kom., CPP.",
+                    "Akhmad Arifin, S.E., CPP., C.CPL.",
+                    "Fauzi Rahman, S.H., C.NSP., C.PS., C.HL., C.CL., C.TM., C.CPL.",
+                    "Nasiruddin, S.Pd.I., C.CPL.", "Miftahul Huda, S.H., CPP.",
+                    "Muhammad Roikhan Mansyurin, S.H., CPP.", "Tamamul Cheri, S.H., CPP.",
+                    "Viola Fitri Fauzi, S.H., CPP.", "Nur Kusuma Wardhani, S.H., M.H., CPP.",
+                    "Khoirunnisa, S.H., CPP.", "Johanes Amarald Lase, S.H., CPP.",
+                    "Sunarto Rizki Saputra, CPP.", "Aufa Isri Zuraida, S.H., CPP.",
+                    "Agus Supriyono, A.Md., S.H., CPP.", "Aldi Danuarta Soesanto, S.H., CPP.",
+                    "Laelani Yasmetha, CPP.", "Narendra Aryamehr Reza, S.Si., M.Sc., CPP., C.CPL.",
+                    "Rifki Alam, S.Ikom., CPP.", "Danang Pamungkas, C.BJ., CIJ., C.INP., CPP.",
+                    "Rimba Saiful Bahrum, CPP.", "Avia Ayu Wulandari, S.H., CPP.",
+                    "Witanto, S.Th., C.Med., C.PLA., C.CPL.", "Muhammad Hazim, S.H., CPP.",
+                    "Cisto, C.CPL.", "Faqih Ash Shobir, S.H., CPP.", "Fitriani Rosalila, S.E., CPP., C.CPL."
+                ]
+            },
+            {
+                id: 'batch2', batchNum: 2, name: 'Paralegal & CPP', year: '2026',
+                driveSert: '', driveKta: '',
+                peserta: [
+                    "Grifandy Yanuar Ramadhan, S.H., CPP.", "Agus Santosa, S.H., CPP.",
+                    "Fajar Apriliansyah Malik, S.H., CPP.", "Ahmad Nurun, S.H., M.H., CPP.",
+                    "Eddy Suyanto, S.E., CPSc., CPP.", "Ahmad Taufiq Hidayat, S.Pd.Gr., CPP.",
+                    "Dr. Djunaidi Raupele, S.E., M.Si., CPP.", "Roizal Kosasi, CPP.",
+                    "Joko Supiadi, CPP.", "KH. Hairudin, S.H.I., C.CPL., CPP.",
+                    "Dr. Ami Karmila, MBA., DBA., CHCO., CPP.", "Lina Karlina, A.Md.Kep., CPP.",
+                    "Silsilah Kasih Putra Abadi Halawa, CPP.", "Wanzon Niwansah Teguh, CPP.",
+                    "Eko Yuniarto, AMd., S.E., Gr., CAP., CPP.", "Hendri Cahyo Puspito, CPP.",
+                    "Ahmad Samsul Bachri, S.H.I., M.H., CPP.", "Mukhamad Mughni Hidayattulloh, CPP.",
+                    "Ari Bagus Pranata, CPP.", "Jihan Rana Syakira, CPP.",
+                    "Suharsono Reno Utomo, S.M., CPP.", "Kiki Amelia Putri, CPP.",
+                    "Chris Jatender, CPP.", "Ruth Adi Nuraini, CPP.", "Vica Rizqia Hidayat, CPP.",
+                    "Melinda Siti Nurhawa, CNPSP., CPP.", "William Germinian Atalie, CPP.",
+                    "Liska Febriyani, CPP.", "Ruth Evyana, S.Kom., CPP.",
+                    "Muhammad Mas Davit Herman Rudiyansah, CPP.", "Eko Dwi Pramono, S.E., M.M., CPP.",
+                    "Danu Purdianto, CPP.", "Rhasya Diva Abellasyah, CPP.",
+                    "Sisca Rizkia Arifianti, CPP.", "Sukamad, S.E., CPP.",
+                    "Widy Supriyanto, S.H., C.MSP., CPP.", "Setyo Tri Widiyatno, CPP.",
+                    "Ato Suprianto, S.H., S.ST., C.PHR., CPP.", "Kharisma, CPP.",
+                    "Muhamad Daffa Abdurahman, S.H., CPP.", "Ariadi, S.H., MH., CPP.",
+                    "Mashari, S.H., CPP.", "Rahmad Dilaga, S.H., CPP.", "Randy Jushar Nugraha, CPP.",
+                    "Budi Muslim, CPP.", "Saiful Anam, S.Pi., M.H., CPP.", "Supiani, S.E., CPP.",
+                    "Adetya Afrizal Mutaqin, S.E., CPP.", "Molang Tokan, S.H., CPP.",
+                    "Elmisna, S.H., CPP.", "Koni Kristiansyah, S.T., CPP.", "Taufik Alhakim, S.H., CPP.",
+                    "Siti Nur Aisah, S.H., C.PS., CPP.", "Rudy Hapsan Lbn. Raja. Ba., CPP.",
+                    "Roni Alim Putra, S.T., CPP.", "Michael Marcellino Mandiri, S.Tr.Pa., CPP.",
+                    "Yahya Ayash Adi Prasetyo, S.H., CPP.", "Ghefira Putri Aurarifa, S.H., CPP.",
+                    "Rusmana Joko Wijaya, S.H., CPP.", "Yoga Agung Pratama, S.Pd., CPP.",
+                    "Junaedi, S.H., C.MK., C.HT., C.SA., C.Med., CPP.", "D. Muslihat, S.H., CPP.",
+                    "Jaka Taufik Hidayatulloh, CPP.", "Agus Nirwanto, S.T., CACA., C.Med., CPP.",
+                    "Ahmad Apendi, S.H., CPP.", "Haris Efendi B., CPP.",
+                    "Septian Yamaika, S.Kom., M.Kom., CPP.", "Rahmatullah Ikhsan, S.H., CPP.",
+                    "Almu'arif Budiman, CPP.", "Yusuf Pribadi, CPP.", "Sukir, CPP.", "Ruswanto, CPP.",
+                    "Sugeng Mohamad Nursantoso, CPP.", "Azang Zaenal Arifin, S.Pd., CPP.",
+                    "Muhammad Hanif Ansoruddin, S.M., CPP.", "Rheza Andika Riyatno, S.H., CBMed., CPP.",
+                    "Petrus Olla Atawuwur, S.STP., CPP.", "Adnan Budiman, S.STP., M.M., CPP.",
+                    "Mikhael Jhon Sesa, S.Kom., CPP.", "Devi Dhea Lestari, S.Kom., CPP.",
+                    "Roy Kornelis Laritembun, ST., CPP.", "Hamid, CPP.",
+                    "Muhamad Iqbal Bahtiar, S.Kom., CPP.", "Najma Kamila, CPP.",
+                    "Rusdia Marito Hasibuan, S.H., CPP.", "Halimatus Sakdia, S.H., CPP.",
+                    "MT Mudjaki, CPP.", "Aghfar Adriawan, CPP.", "Lisa Wulandari, S.H., CPP.",
+                    "Muhamad Irfan Muzakki, S.H., CPP.", "Sudarto, S.H., CPP.",
+                    "Endang Werdiningsih, CCFA., CT.SA., CPP.",
+                    "Singgih Adi Prabowo, CPP., CPM., CMSE.", "Ozha Tiwa Hiawananta, S.H., CPP.",
+                    "Adv. Irma Maulani Batubara, S.H., M.H., CPP.", "Badrun Nuri, CPP.",
+                    "Bambang Santoso, CPP.", "Assagaf Reyvan Afandi, CPP.",
+                    "Muslani, S.St.Pi., M.H., CPP.", "Amelia Cohenta, S.H., CPP.",
+                    "Rena, S.Sos., CPP.", "Muhammad Hasan Abdurrahman, CPP.",
+                    "Hari Nurdiansyah, ANT lll., SPd., CPP.", "Dahman Sirait, S.H., CPP.",
+                    "Remmi Sitanggang, CPP.", "R. Wakhid Khoirudin, S.M., CPP., CPS., C.MTr.",
+                    "Isyaq Mustaqim, S.Kom., M.I.Kom., CPP.", "Ardhi Win Handono, CPP.",
+                    "Muryanto, CPP.", "Hana Justina Mbolik, CPP.",
+                    "Hairul Arifin, A.Md.Kep., C.MPH., C.CHT., CH., C.CPLA., C.MLE., CPP.",
+                    "Andika Fayza Rahman, CPP.", "Angeli Putriani, S.H., CPP.",
+                    "H. Hendra Gunawan, S.Pd.I., CPP.", "Rinotata Putera Tonata, S.H., CPP.",
+                    "Rafa Huwaida, CPP.", "Wafirotul Elifah, S.Psi., CPP.",
+                    "Siti Nur Hayati, S.H., CPP.", "Hartono, CPP.", "Heru Andri Wijaya, CPP.",
+                    "David Risdianto, S.E., CPP.", "Dava Arya Wibowo, CPP.",
+                    "Muhammad Reza Zafiruddin Susilo, S.I.P., MSc., CPP.",
+                    "Agung Setiawan, S.H., CPP.", "Dr. Gusti Anom Wijaya, S.ST., M.M., CPP.",
+                    "Dewa Gede Radya Pito Brata, S.H., CPP.", "Nisrina Zukhrufa Ilham, S.H., CPP.",
+                    "Farah Diva, S.H., CPP.", "Saskia Anjani, S.H., CPP.",
+                    "Desty Puteri Hardyati, S.H., CPP.", "Rizqi Izrul Alamsyah, S.H., CPP.",
+                    "Enggal Swasana, S.T., CPP.", "Khrisna Cahyawardhani, S.H., CPP.",
+                    "Fitri Rahayu, CPP.", "Abdul Mukhyi, CPP.",
+                    "Alya Nabila Rahma Wijaya, S.H., CPP.", "Ikbal Safari, CPL., CPP.",
+                    "Vania Megawati Manurung, S.T., CPP.", "Hermansyah, CPP.",
+                    "Dinda Trimudya, S.ST.Pi., CPP.", "Aria Setiawan, S.H., CPP.",
+                    "Jemfri Laoh, CPP.", "Mahmud Hartono, CPP.", "Ahmad Hidayat, CPP.",
+                    "Ahmad Zikriansyah, S.H., CPP.", "Gama Mulya, S.T.P., CPP.",
+                    "Sugeng M. Sugiharto, S.E., S.H., CPP.", "Defo Riando Arensyah, S.H., CPP.",
+                    "Joko Purnomo, CPP.", "Dwi Sinta, S.H., CPP.", "Edi Sucipto, S.H., CPP.",
+                    "Asiyah, S.H., CPP.", "Musmuliadi, S.H., M.H., C.RM., C.KM., C.LC., CPP.",
+                    "M. Agie Saputra, C.PLA., CPP.", "Suroso, C.PLA., CPP.",
+                    "Saryanto, S.Tp., C.PLA., CPP.", "Kezia Mayindah, S.H., CPP.",
+                    "Denny Wahyudi, CPP.", "Utomo Sidomulyo, S.E., CPP.",
+                    "Bunga Sukmawati, S.H., CPP.", "Jecelyn Amanda Dethan, S.H., M.H., CPP.",
+                    "Nadia Maulina, S.M., CPP.", "Ir. Samin, M.M., CPP.", "Ariyanto, CWC., CPP.",
+                    "Maura Ivana, S.Psi., CPP.",
+                    "Tan Bonaventura Andika S., S.E., M.M., CRMA., MDISCA., CPP.",
+                    "Ir. Lily Siswanto Hakim, CPP.", "Ricki Harapan Sitompul, S.H., M.H., CPP.",
+                    "Yusmita, M.H., CPP.", "Jumardin, S.H., M.H., C.L.E., C.FLS., CPP.",
+                    "Raditya Cahyo B.R., S.M., CPLA., CPP.", "Yudhi Hertanto, S.T., M.M., CPP.",
+                    "Mahsyar Pandu Satya, CPP.", "Reformasi Laia, S.H., CPP.",
+                    "Syahdan Muhamad Gamal, S.H., CPP.", "Lutfi Rachman, CPLA., CPP.",
+                    "Herdin Dimas Romadhan Wahyudin, S.H., CPP.", "Nur Laila Annisa Putri, CPP.",
+                    "Anwar Saiyin, S.Pd.I.Gr., CPP.", "Muhamad Farhan Auliya, S.H., CPP.",
+                    "Yusril Ihza Mahendra, S.H., CPP.", "Uden Saepul Anwar, S.H., CPP.",
+                    "Miranda Sari, S.H., CPP.", "Hastri Amalda, S.H., CPP.",
+                    "Masruha, S.Sy., M.H., CPP.", "Lukman Nur Hakim, CPP.",
+                    "Mariyam, S.Sos., M.AP., CFrA., CPP.", "Dannis Limawan, CPP.",
+                    "Atrid Dayani, CPP.", "Bambang Willianto, CFI., CPA., MAk., CPP.",
+                    "Arif Hirmawan, S.T., M.M., CT., CPP., MAPPI (Cert).",
+                    "Hartoyo, C.CPPOB/GMP., HACCP., CPP.", "Asni Asyuni, S.H., M.H., CPP.",
+                    "Junaedi, CPP.", "Evi Tjan, S.Kom., M.M., BKP., CPP.",
+                    "Alvina Olivia Sitorus, S.H., CPP.", "Harmadi, A.Ma.Pust., CPP.",
+                    "Anang Setiyawan, CPP.", "Aditya Pratama, A.Md.Kes., CPP.",
+                    "Monica Priski Cahya Maulidya, S.E.Ak., M.Ak., CA., BKP., CPP.",
+                    "Bramantyo Wahyu Dewantara, S.H., CPP.", "Subekan, S.PD., CPP.",
+                    "Majuri Ma, S.H., CPP.", "Ayi Budiman, S.H.I., CPP.",
+                    "Maulana Putra Malik, S.H., CPP.", "Edy Maskun Aritonang, CPP.",
+                    "Mohamad Saifulloh, CPP.", "Rudi Hartono, CPM., CPP.",
+                    "Dimas Anata Prasetya, CPP.", "Ade Yusuf, CPP.", "Rahmad Barahama, S.T., CPP.",
+                    "Bachrun Bachtiar, S.Sos., CPP.", "Hasdiniarto, CPP."
+                ]
+            }
+        ];
+
+        // ── STORAGE ──────────────────────────────────────────────────
+        function loadData() {
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) { state.batches = JSON.parse(raw); return; }
+            } catch (e) { }
+            state.batches = JSON.parse(JSON.stringify(SEED));
+            saveData();
+        }
+        function saveData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.batches));
+            // Juga simpan ke key yang dibaca oleh halaman batch individual
+            state.batches.forEach(function (b) {
+                localStorage.setItem('peradi_batch_' + b.batchNum, JSON.stringify(b));
+            });
+        }
+
+        // ── HELPERS ──────────────────────────────────────────────────
+        function genId() { return 'batch_' + Date.now(); }
+        function totalPeserta() { return state.batches.reduce(function (s, b) { return s + b.peserta.length; }, 0); }
+        function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+        function showToast(msg, type) {
+            var t = document.getElementById('toast');
+            t.className = 'toast' + (type ? ' ' + type : '');
+            t.innerHTML = (type === 'success' ? '<i class="fas fa-check-circle"></i> ' : type === 'danger' ? '<i class="fas fa-times-circle"></i> ' : '<i class="fas fa-info-circle"></i> ') + msg;
+            t.classList.add('show');
+            setTimeout(function () { t.classList.remove('show'); }, 3000);
+        }
+
+        function makeQRUrl(batchNum) {
+            var base = window.location.href.split('/').slice(0, -1).join('/') + '/batch' + batchNum + '.html';
+            return 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(base);
+        }
+
+        function parsePaste(raw) {
+            return raw.split('\n').map(function (l) { return l.trim(); }).filter(function (l) { return l.length > 0; });
+        }
+
+        // ── RENDER INDEX ─────────────────────────────────────────────
+        function renderIndex() {
+            document.getElementById('statBatch').textContent = state.batches.length;
+            document.getElementById('statPeserta').textContent = totalPeserta();
+            var grid = document.getElementById('batchGrid');
+            grid.innerHTML = '';
+
+            state.batches.forEach(function (batch, idx) {
+                var bNum = batch.batchNum || (idx + 1);
+                var card = document.createElement('div');
+                card.className = 'batch-card';
+                card.innerHTML =
+                    '<div class="batch-card-head">' +
+                    '<span class="batch-num-tag">Batch ' + String(bNum).padStart(2, '0') + '</span>' +
+                    '<div class="batch-title-text">' + escHtml(batch.name) + '</div>' +
+                    '<div class="batch-meta-row">' +
+                    '<span><i class="far fa-calendar"></i> ' + escHtml(batch.year || '-') + '</span>' +
+                    '<span><i class="fas fa-users"></i> ' + batch.peserta.length + ' Peserta</span>' +
+                    '</div></div>' +
+                    '<div class="batch-card-body">' +
+                    '<div class="batch-kpi">' +
+                    '<div><span class="kpi-num">' + batch.peserta.length + '</span><span class="kpi-label">Peserta</span></div>' +
+                    '<div><span class="kpi-num">CPP</span><span class="kpi-label">Sertifikasi</span></div>' +
+                    '</div>' +
+                    '<div class="qr-wrap">' +
+                    '<div class="qr-box"><img src="' + makeQRUrl(bNum) + '" alt="QR Batch ' + bNum + '" loading="lazy"></div>' +
+                    '<span class="qr-hint"><i class="fas fa-qrcode"></i> Scan → batch' + bNum + '.html</span>' +
+                    '</div>' +
+                    '<div class="batch-actions">' +
+                    '<a href="batch' + bNum + '.html" class="btn-view-batch"><i class="fas fa-list"></i> Lihat Peserta</a>' +
+                    (state.isAdmin ? '<button class="btn-edit-batch" data-id="' + batch.id + '"><i class="fas fa-pen"></i> Edit</button>' : '') +
+                    '</div></div>';
+                grid.appendChild(card);
+            });
+
+            if (state.isAdmin) {
+                var addCard = document.createElement('div');
+                addCard.className = 'batch-card-add';
+                addCard.innerHTML = '<div class="add-icon"><i class="fas fa-plus"></i></div><p>Tambah Batch Baru</p><small>Paste nama peserta langsung</small>';
+                addCard.addEventListener('click', function () { openBatchModal(null); });
+                grid.appendChild(addCard);
+            }
+
+            grid.querySelectorAll('.btn-edit-batch').forEach(function (btn) {
+                btn.addEventListener('click', function (e) { e.stopPropagation(); openBatchModal(btn.dataset.id); });
+            });
+        }
+
+        // ── BATCH MODAL ──────────────────────────────────────────────
+        function openBatchModal(batchId) {
+            state.editingBatch = batchId;
+            var isEdit = !!batchId;
+            var batch = isEdit ? state.batches.find(function (b) { return b.id === batchId; }) : null;
+
+            document.getElementById('modalBatchTitle').textContent = isEdit ? 'Edit Batch' : 'Tambah Batch Baru';
+            document.getElementById('modalBatchSub').textContent = isEdit ? 'Ubah data atau peserta' : 'Isi data dan paste nama peserta';
+            document.getElementById('inputBatchName').value = batch ? batch.name : '';
+            document.getElementById('inputBatchNum').value = batch ? (batch.batchNum || '') : '';
+            document.getElementById('inputBatchYear').value = batch ? batch.year : new Date().getFullYear();
+            document.getElementById('inputDriveSert').value = batch ? batch.driveSert : '';
+            document.getElementById('inputDriveKta').value = batch ? batch.driveKta : '';
+            document.getElementById('inputNama').value = batch ? batch.peserta.join('\n') : '';
+            document.getElementById('btnDeleteBatch').style.display = isEdit ? 'inline-flex' : 'none';
+            document.getElementById('previewUrl').textContent = batch ? (batch.batchNum || 'N') : 'N';
+            updatePreviewCount();
+            document.getElementById('modalBatch').classList.add('open');
+        }
+        function closeBatchModal() { document.getElementById('modalBatch').classList.remove('open'); state.editingBatch = null; }
+
+        function updatePreviewCount() {
+            var lines = parsePaste(document.getElementById('inputNama').value);
+            var pc = document.getElementById('previewCount');
+            pc.textContent = lines.length > 0 ? '✓ ' + lines.length + ' nama terdeteksi' : '';
+            pc.style.color = lines.length > 0 ? '#16a34a' : '';
+            var num = document.getElementById('inputBatchNum').value.trim();
+            document.getElementById('previewUrl').textContent = num || 'N';
+        }
+
+        function saveBatch() {
+            var name = document.getElementById('inputBatchName').value.trim();
+            var batchNum = parseInt(document.getElementById('inputBatchNum').value.trim());
+            var year = document.getElementById('inputBatchYear').value.trim();
+            var driveSert = document.getElementById('inputDriveSert').value.trim();
+            var driveKta = document.getElementById('inputDriveKta').value.trim();
+            var peserta = parsePaste(document.getElementById('inputNama').value);
+
+            if (!name) { showToast('Nama batch tidak boleh kosong', 'danger'); return; }
+            if (!batchNum || batchNum < 1) { showToast('Nomor batch harus diisi', 'danger'); return; }
+            if (peserta.length === 0) { showToast('Minimal 1 peserta', 'danger'); return; }
+
+            if (state.editingBatch) {
+                var idx = state.batches.findIndex(function (b) { return b.id === state.editingBatch; });
+                if (idx !== -1) state.batches[idx] = { id: state.editingBatch, batchNum: batchNum, name: name, year: year, driveSert: driveSert, driveKta: driveKta, peserta: peserta };
+                showToast('Batch berhasil diperbarui!', 'success');
+            } else {
+                state.batches.push({ id: genId(), batchNum: batchNum, name: name, year: year, driveSert: driveSert, driveKta: driveKta, peserta: peserta });
+                showToast('Batch baru berhasil ditambahkan!', 'success');
+            }
+            saveData();
+            closeBatchModal();
+            renderIndex();
+        }
+
+        function deleteBatch() {
+            if (!state.editingBatch) return;
+            var batch = state.batches.find(function (b) { return b.id === state.editingBatch; });
+            if (!confirm('Yakin hapus batch ini? Peserta akan hilang permanen.')) return;
+            if (batch) localStorage.removeItem('peradi_batch_' + batch.batchNum);
+            state.batches = state.batches.filter(function (b) { return b.id !== state.editingBatch; });
+            saveData();
+            closeBatchModal();
+            renderIndex();
+            showToast('Batch dihapus.', 'danger');
+        }
+
+        // ── AUTH ─────────────────────────────────────────────────────
+        function openLoginModal() { document.getElementById('modalLogin').classList.add('open'); document.getElementById('inputPassword').value = ''; document.getElementById('pwError').classList.remove('show'); }
+        function closeLoginModal() { document.getElementById('modalLogin').classList.remove('open'); }
+
+        function doLogin() {
+            if (document.getElementById('inputPassword').value === ADMIN_PASS) {
+                state.isAdmin = true;
+                closeLoginModal();
+                document.getElementById('adminBar').classList.add('show');
+                document.getElementById('btnOpenAdmin').innerHTML = '<i class="fas fa-shield-alt"></i> Mode Admin Aktif';
+                document.getElementById('btnOpenAdmin').classList.add('active-admin');
+                renderIndex();
+                showToast('Login berhasil! Mode admin aktif.', 'success');
+            } else {
+                document.getElementById('pwError').classList.add('show');
+                document.getElementById('inputPassword').value = '';
+                document.getElementById('inputPassword').focus();
+            }
+        }
+
+        function doLogout() {
+            state.isAdmin = false;
+            document.getElementById('adminBar').classList.remove('show');
+            document.getElementById('btnOpenAdmin').innerHTML = '<i class="fas fa-lock"></i> Login Admin';
+            document.getElementById('btnOpenAdmin').classList.remove('active-admin');
+            renderIndex();
+            showToast('Logout berhasil.');
+        }
+
+        // ── NAVBAR ───────────────────────────────────────────────────
+        function initNavbar() {
+            var mt = document.getElementById('menuToggle'), nm = document.getElementById('navMenu'), nb2 = document.getElementById('navBackdrop'), dd = document.querySelectorAll('.dropdown'), b = document.body;
+            function openM() { nm.classList.add('active'); nb2.classList.add('active'); b.classList.add('menu-open'); b.style.overflow = 'hidden'; mt.classList.add('active'); mt.innerHTML = '<i class="fas fa-times"></i>'; }
+            function closeM() { nm.classList.remove('active'); nb2.classList.remove('active'); b.classList.remove('menu-open'); b.style.overflow = ''; mt.classList.remove('active'); mt.innerHTML = '<i class="fas fa-bars"></i>'; dd.forEach(function (i) { i.classList.remove('active'); }); }
+            if (mt) mt.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); nm.classList.contains('active') ? closeM() : openM(); });
+            if (nb2) nb2.addEventListener('click', closeM);
+            function dc(e) { e.preventDefault(); e.stopPropagation(); var p = this.closest('.dropdown'); dd.forEach(function (i) { if (i !== p) i.classList.remove('active'); }); p.classList.toggle('active'); }
+            function bd() { if (window.innerWidth <= 1023) { dd.forEach(function (item) { var l = item.querySelector('.dropdown-toggle'); if (l) { l.removeEventListener('click', dc); l.addEventListener('click', dc); } }); } else { dd.forEach(function (i) { i.classList.remove('active'); }); } }
+            bd(); window.addEventListener('resize', function () { if (window.innerWidth > 1023 && nm.classList.contains('active')) closeM(); bd(); });
+            document.querySelectorAll('.nav-list a:not(.dropdown-toggle)').forEach(function (l) { l.addEventListener('click', function () { if (window.innerWidth <= 1023) closeM(); }); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeM(); document.querySelectorAll('.modal-overlay.open').forEach(function (m) { m.classList.remove('open'); }); } });
+            var nb = document.getElementById('navbar'); if (nb) window.addEventListener('scroll', function () { nb.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+        }
+
+        // ── INIT ─────────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', function () {
+            initNavbar();
+            loadData();
+            renderIndex();
+
+            document.getElementById('btnOpenAdmin').addEventListener('click', openLoginModal);
+            document.getElementById('doLogin').addEventListener('click', doLogin);
+            document.getElementById('cancelLogin').addEventListener('click', closeLoginModal);
+            document.getElementById('closeLogin').addEventListener('click', closeLoginModal);
+            document.getElementById('inputPassword').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+            document.getElementById('btnLogout').addEventListener('click', doLogout);
+
+            document.getElementById('closeBatch').addEventListener('click', closeBatchModal);
+            document.getElementById('cancelBatch').addEventListener('click', closeBatchModal);
+            document.getElementById('saveBatch').addEventListener('click', saveBatch);
+            document.getElementById('btnDeleteBatch').addEventListener('click', deleteBatch);
+            document.getElementById('inputNama').addEventListener('input', updatePreviewCount);
+            document.getElementById('inputBatchNum').addEventListener('input', updatePreviewCount);
+
+            document.getElementById('modalLogin').addEventListener('click', function (e) { if (e.target === this) closeLoginModal(); });
+            document.getElementById('modalBatch').addEventListener('click', function (e) { if (e.target === this) closeBatchModal(); });
+        });
+    </script>
+</body>
+
+</html>

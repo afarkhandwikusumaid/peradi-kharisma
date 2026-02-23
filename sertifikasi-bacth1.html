@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Batch 1 — Database Peserta Sertifikasi PERADI KHARISMA</title>
+    <link rel="icon" href="asset/PERADI.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: var(--navbar-h, 72px);
+            background: #f4f6f9;
+        }
+
+        .sert-hero {
+            background: linear-gradient(115deg, rgba(10, 35, 66, 0.97) 0%, rgba(44, 76, 124, 0.92) 60%, rgba(10, 35, 66, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 3rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sert-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 240px;
+            height: 240px;
+            border: 50px solid rgba(201, 169, 89, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .sert-hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sert-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid rgba(201, 169, 89, 0.35);
+            border-radius: 50px;
+            padding: 0.35rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--secondary);
+        }
+
+        .sert-eyebrow span {
+            width: 18px;
+            height: 1px;
+            background: var(--secondary);
+        }
+
+        .sert-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 0.6rem;
+        }
+
+        .sert-hero h1 em {
+            color: var(--secondary);
+            font-style: normal;
+        }
+
+        .sert-hero p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-weight: 300;
+            margin-bottom: 1.8rem;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .drive-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-drive {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-drive-gold {
+            background: var(--secondary);
+            color: var(--primary);
+            box-shadow: 0 6px 20px rgba(201, 169, 89, 0.3);
+        }
+
+        .btn-drive-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(201, 169, 89, 0.45);
+            background: #d9bb6f;
+            color: var(--primary);
+        }
+
+        .btn-drive-outline {
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+
+        .btn-drive-outline:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .sert-stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sert-stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .sert-stat-label {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: block;
+            margin-top: 0.18rem;
+        }
+
+        /* ── SEARCH ── */
+        .search-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 1.1rem 1.25rem;
+            position: sticky;
+            top: var(--navbar-h, 72px);
+            z-index: 90;
+            box-shadow: 0 2px 14px rgba(10, 35, 66, 0.06);
+        }
+
+        .search-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .search-ico {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.72rem 2.5rem 0.72rem 2.6rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--primary);
+            outline: none;
+            transition: all 0.25s;
+            background: var(--light);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-soft);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(44, 76, 124, 0.08);
+        }
+
+        .search-input::placeholder {
+            color: #aab;
+        }
+
+        .btn-clear-s {
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 0.78rem;
+            width: 22px;
+            height: 22px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .btn-clear-s:hover {
+            background: var(--gray-light);
+            color: var(--primary);
+        }
+
+        .btn-clear-s.show {
+            display: flex;
+        }
+
+        .search-meta {
+            font-size: 0.75rem;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        .search-meta strong {
+            color: var(--primary);
+        }
+
+        /* ── TABLE ── */
+        .sert-main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.25rem 4rem;
+        }
+
+        .sect-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--secondary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sect-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-light);
+        }
+
+        .table-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+
+        .table-head {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            background: var(--primary);
+            color: var(--secondary);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.85rem 1.5rem;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            padding: 0.85rem 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            align-items: center;
+            transition: background 0.15s;
+            animation: rowIn 0.28s ease both;
+        }
+
+        @keyframes rowIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:hover {
+            background: #fafbff;
+        }
+
+        .table-row:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .table-row:nth-child(even):hover {
+            background: #f3f5ff;
+        }
+
+        .row-no {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-soft);
+        }
+
+        .row-nama {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .row-nama mark {
+            background: rgba(201, 169, 89, 0.25);
+            color: var(--primary);
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3.5rem 2rem;
+            color: var(--gray);
+            display: none;
+        }
+
+        .empty-state i {
+            font-size: 2.8rem;
+            opacity: 0.2;
+            margin-bottom: 0.9rem;
+            display: block;
+            color: var(--primary);
+        }
+
+        .empty-state p {
+            font-size: 0.88rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 3.5rem 2rem;
+            color: var(--gray);
+        }
+
+        .loading-state i {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.75rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .page-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.72rem;
+            color: var(--gray);
+            opacity: 0.7;
+        }
+
+        .page-note span {
+            color: var(--secondary-dark);
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .sert-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sert-hero {
+                padding: 2rem 0 1.8rem;
+            }
+
+            .sert-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .drive-buttons {
+                flex-direction: column;
+            }
+
+            .btn-drive {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .table-head,
+            .table-row {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="asset/logoperadi.PNG" alt="PERADI Logo" class="logo-image"></div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Beranda</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Tentang Kami <i
+                                class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#visi-misi" class="dropdown-item">Visi &amp; Misi</a></li>
+                            <li><a href="index.html#struktur" class="dropdown-item">Struktur Organisasi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle">Layanan <i
+                                class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#buhaschool" class="dropdown-item">BuhaLawSchool</a></li>
+                            <li><a href="index.html#lawoffice" class="dropdown-item">LawOffice</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="index.html#legalitas" class="nav-link">Legalitas</a></li>
+                    <li class="nav-item"><a href="index.html#berita" class="nav-link">Berita</a></li>
+                    <li class="nav-item"><a href="index.html#footer" class="nav-link">Kontak</a></li>
+                    <li class="nav-item chat-item">
+                        <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"
+                            class="chat-btn">
+                            <i class="fab fa-whatsapp"></i> <span>Open Chat</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <!-- HERO -->
+    <section class="sert-hero">
+        <div class="sert-hero-inner">
+            <div class="sert-eyebrow"><span></span> Batch 01 — PERADI KHARISMA <span></span></div>
+            <h1><em>Peserta Batch 1</em><br><span id="heroTitle">Sertifikasi</span></h1>
+            <p id="heroDesc">Daftar resmi peserta sertifikasi Batch 1 PERADI KHARISMA.</p>
+
+            <div class="drive-buttons" id="driveButtons">
+                <!-- filled by JS -->
+            </div>
+
+            <div class="sert-stats">
+                <div><span class="sert-stat-num" id="statTotal">-</span><span class="sert-stat-label">Total
+                        Peserta</span></div>
+                <div><span class="sert-stat-num" id="statTahun">-</span><span class="sert-stat-label">Tahun</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH -->
+    <div class="search-bar">
+        <div class="search-bar-inner">
+            <div class="search-wrap">
+                <i class="fas fa-search search-ico"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari nama peserta..."
+                    autocomplete="off" spellcheck="false">
+                <button class="btn-clear-s" id="btnClear"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-meta">Menampilkan <strong id="searchCount">-</strong> data</div>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="sert-main">
+        <div class="sect-label" id="sectionLabel">Daftar Peserta — Batch 1</div>
+        <div class="table-card">
+            <div class="table-head">
+                <div>No.</div>
+                <div>Nama Peserta</div>
+            </div>
+            <div class="table-body" id="tableBody">
+                <div class="loading-state"><i class="fas fa-circle-notch"></i>
+                    <p>Memuat data peserta...</p>
+                </div>
+            </div>
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-search"></i>
+                <p>Tidak ditemukan hasil untuk "<span id="emptyQuery"></span>"</p>
+            </div>
+        </div>
+        <p class="page-note">Halaman ini bersifat <span>PRIVATE</span> — PERADI KHARISMA © 2026</p>
+    </div>
+
+    <script>
+        var BATCH_NUM = 1;                         // Nomor batch halaman ini
+        var STORAGE_KEY = 'peradi_batch_' + BATCH_NUM;
+        var MASTER_KEY = 'peradi_sertifikasi_v2';   // Sama dengan sertifikasi.html
+
+        // Fallback data — digunakan jika localStorage belum pernah diisi
+        var FALLBACK = {
+            batchNum: 1, name: 'Paralegal & C.CPL', year: '2025',
+            driveSert: '', driveKta: '',
+            peserta: [
+                "Setia Wati, CPP., C.CPL.", "Erinaldi, S.ST., CPP.", "Oktonius Ndruru, S.H., CPP.",
+                "Moh. Ainul Yaqin, S.Pd.I., CPP.", "Nina Christiana, S.H., CPP.", "Dwi Setiyono, S.H., CPP.",
+                "Muhammad Rifqi Riza, C.PS., CPP.", "Peri Kurnia Hidayat, S.Pi., C.CPL.",
+                "Edi Samsuri, S.Fil.I., S.H., C.CPL.", "Chintia Mutiara Dewi, S.H., C.CPL.",
+                "Kusdianto, S.H., C.CPL.", "Zul Arifin, C.CPL.", "Sumidi, S.Sos., CPP., C.CPL.",
+                "Muhammad Aswan Kelian, S.H., CPP., C.CPL.", "Hadi Susanto, C.CPL.",
+                "Heri Ferianto, C.CPL.", "Lendra Erfanta Miantaka, C.CPL.", "Imam Afkiri, CPP., C.CPL.",
+                "Riadi, S.M., CPP.", "Rizki Abdul Jabbar, S.H., CPP.", "Jupriadil, A.Md., CPP.",
+                "Usnin Kusuma, CPP.", "Raden Dimas Tri Nugroho, S.H., M.H., CPP.",
+                "Sandri Ramadhan Oktaviano, CPP.", "Mayer Ricardo Sagala, S.E., CTA., CPP.",
+                "Panji Satrio Kinasih, S.H., CPP.", "Ripa Mahal Kabul Izati, S.H., CPP.",
+                "Dr (C). Ir. Arsenius, A.P.T., S.T., S.Sos., M.B.A., M.H., C.CPL.",
+                "Happy Ari Kurniawan, S.H., C.CPL.", "Soni Hendrawan, M.B.A., CPLA., CPP.",
+                "Fahri Ade Susilo, CPP.", "Shilpi Yanti, A.Md., CPP.", "Hary Murdianto, S.H., CPP.",
+                "Daimatun Nafi'ah, S.H., CPP.", "Titi Herlina, S.I.Kom., CPP.",
+                "Akhmad Arifin, S.E., CPP., C.CPL.",
+                "Fauzi Rahman, S.H., C.NSP., C.PS., C.HL., C.CL., C.TM., C.CPL.",
+                "Nasiruddin, S.Pd.I., C.CPL.", "Miftahul Huda, S.H., CPP.",
+                "Muhammad Roikhan Mansyurin, S.H., CPP.", "Tamamul Cheri, S.H., CPP.",
+                "Viola Fitri Fauzi, S.H., CPP.", "Nur Kusuma Wardhani, S.H., M.H., CPP.",
+                "Khoirunnisa, S.H., CPP.", "Johanes Amarald Lase, S.H., CPP.",
+                "Sunarto Rizki Saputra, CPP.", "Aufa Isri Zuraida, S.H., CPP.",
+                "Agus Supriyono, A.Md., S.H., CPP.", "Aldi Danuarta Soesanto, S.H., CPP.",
+                "Laelani Yasmetha, CPP.", "Narendra Aryamehr Reza, S.Si., M.Sc., CPP., C.CPL.",
+                "Rifki Alam, S.Ikom., CPP.", "Danang Pamungkas, C.BJ., CIJ., C.INP., CPP.",
+                "Rimba Saiful Bahrum, CPP.", "Avia Ayu Wulandari, S.H., CPP.",
+                "Witanto, S.Th., C.Med., C.PLA., C.CPL.", "Muhammad Hazim, S.H., CPP.",
+                "Cisto, C.CPL.", "Faqih Ash Shobir, S.H., CPP.", "Fitriani Rosalila, S.E., CPP., C.CPL."
+            ]
+        };
+
+        var DATA_PESERTA = [];
+
+        function loadBatchData() {
+            // Coba baca dari key batch spesifik
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) return JSON.parse(raw);
+            } catch (e) { }
+            // Coba cari dari master storage
+            try {
+                var master = localStorage.getItem(MASTER_KEY);
+                if (master) {
+                    var batches = JSON.parse(master);
+                    var found = batches.find(function (b) { return b.batchNum == BATCH_NUM; });
+                    if (found) return found;
+                }
+            } catch (e) { }
+            return FALLBACK;
+        }
+
+        function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        function hl(text, q) {
+            if (!q) return escHtml(text);
+            var safe = escHtml(text);
+            var esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            return safe.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
+        }
+
+        function render(raw) {
+            var q = (raw || '').trim().toLowerCase();
+            var tb = document.getElementById('tableBody');
+            var es = document.getElementById('emptyState');
+            var countEl = document.getElementById('searchCount');
+            var labelEl = document.getElementById('sectionLabel');
+
+            var list = q ? DATA_PESERTA.filter(function (n) { return n.toLowerCase().includes(q); }) : DATA_PESERTA;
+
+            countEl.textContent = list.length;
+            labelEl.textContent = q ? 'Hasil pencarian "' + document.getElementById('searchInput').value.trim() + '"' : 'Daftar Peserta — Batch ' + BATCH_NUM;
+
+            tb.innerHTML = '';
+
+            if (list.length === 0) {
+                es.style.display = 'block';
+                document.getElementById('emptyQuery').textContent = document.getElementById('searchInput').value.trim();
+            } else {
+                es.style.display = 'none';
+                list.forEach(function (nama, i) {
+                    var row = document.createElement('div');
+                    row.className = 'table-row';
+                    row.style.animationDelay = Math.min(i * 0.02, 0.35) + 's';
+                    row.innerHTML = '<div class="row-no">' + (i + 1) + '</div><div class="row-nama">' + hl(nama, q) + '</div>';
+                    tb.appendChild(row);
+                });
+            }
+        }
+
+        function initPage() {
+            var batch = loadBatchData();
+            DATA_PESERTA = batch.peserta || [];
+
+            // Update hero
+            document.getElementById('heroTitle').textContent = batch.name || 'Sertifikasi';
+            document.getElementById('heroDesc').textContent = 'Daftar resmi ' + DATA_PESERTA.length + ' peserta sertifikasi Batch ' + BATCH_NUM + ' PERADI KHARISMA.';
+            document.getElementById('statTotal').textContent = DATA_PESERTA.length;
+            document.getElementById('statTahun').textContent = batch.year || '-';
+            document.title = 'Batch ' + BATCH_NUM + ' — ' + batch.name + ' — PERADI KHARISMA';
+
+            // Drive buttons
+            var db = document.getElementById('driveButtons');
+            db.innerHTML = '';
+            if (batch.driveSert) {
+                db.innerHTML += '<a href="' + batch.driveSert + '" target="_blank" class="btn-drive btn-drive-gold"><i class="fab fa-google-drive"></i> Drive Sertifikasi</a>';
+            }
+            if (batch.driveKta) {
+                db.innerHTML += '<a href="' + batch.driveKta + '" target="_blank" class="btn-drive btn-drive-outline"><i class="fas fa-id-card"></i> Drive KTA</a>';
+            }
+
+            render('');
+        }
+
+        // ── NAVBAR ─────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', function () {
+            var mt = document.getElementById('menuToggle'), nm = document.getElementById('navMenu'), nb2 = document.getElementById('navBackdrop'), dd = document.querySelectorAll('.dropdown'), b = document.body;
+            function openM() { nm.classList.add('active'); nb2.classList.add('active'); b.classList.add('menu-open'); b.style.overflow = 'hidden'; mt.classList.add('active'); mt.innerHTML = '<i class="fas fa-times"></i>'; }
+            function closeM() { nm.classList.remove('active'); nb2.classList.remove('active'); b.classList.remove('menu-open'); b.style.overflow = ''; mt.classList.remove('active'); mt.innerHTML = '<i class="fas fa-bars"></i>'; dd.forEach(function (i) { i.classList.remove('active'); }); }
+            if (mt) mt.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); nm.classList.contains('active') ? closeM() : openM(); });
+            if (nb2) nb2.addEventListener('click', closeM);
+            function dc(e) { e.preventDefault(); e.stopPropagation(); var p = this.closest('.dropdown'); dd.forEach(function (i) { if (i !== p) i.classList.remove('active'); }); p.classList.toggle('active'); }
+            function bd() { if (window.innerWidth <= 1023) { dd.forEach(function (item) { var l = item.querySelector('.dropdown-toggle'); if (l) { l.removeEventListener('click', dc); l.addEventListener('click', dc); } }); } else { dd.forEach(function (i) { i.classList.remove('active'); }); } }
+            bd(); window.addEventListener('resize', function () { if (window.innerWidth > 1023 && nm.classList.contains('active')) closeM(); bd(); });
+            document.querySelectorAll('.nav-list a:not(.dropdown-toggle)').forEach(function (l) { l.addEventListener('click', function () { if (window.innerWidth <= 1023) closeM(); }); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nm.classList.contains('active')) closeM(); });
+            var nb = document.getElementById('navbar'); if (nb) window.addEventListener('scroll', function () { nb.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+            initPage();
+
+            var si = document.getElementById('searchInput');
+            var bc = document.getElementById('btnClear');
+            si.addEventListener('input', function () { bc.classList.toggle('show', this.value.length > 0); render(this.value); });
+            bc.addEventListener('click', function () { si.value = ''; this.classList.remove('show'); si.focus(); render(''); });
+        });
+    </script>
+</body>
+
+</html>
