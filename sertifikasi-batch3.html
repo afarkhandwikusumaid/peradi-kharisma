@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Batch 1 — Database Peserta Sertifikasi PERADI KHARISMA</title>
+    <title>Batch 3 — Database Peserta Sertifikasi PERADI KHARISMA</title>
     <link rel="icon" href="asset/PERADI.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
@@ -158,7 +158,6 @@
             margin-top: 0.18rem;
         }
 
-        /* ── SEARCH ── */
         .search-bar {
             background: #fff;
             border-bottom: 1px solid var(--gray-light);
@@ -255,7 +254,6 @@
             color: var(--primary);
         }
 
-        /* ── TABLE ── */
         .sert-main {
             max-width: 1280px;
             margin: 2rem auto;
@@ -494,13 +492,11 @@
     <!-- HERO -->
     <section class="sert-hero">
         <div class="sert-hero-inner">
-            <div class="sert-eyebrow"><span></span> Batch 01 — PERADI KHARISMA <span></span></div>
-            <h1><em>Peserta Batch 1</em><br><span id="heroTitle">Sertifikasi</span></h1>
-            <p id="heroDesc">Daftar resmi peserta sertifikasi Batch 1 PERADI KHARISMA.</p>
+            <div class="sert-eyebrow"><span></span> Batch 03 — PERADI KHARISMA <span></span></div>
+            <h1><em>Peserta Batch 3</em><br><span id="heroTitle">Sertifikasi</span></h1>
+            <p id="heroDesc">Daftar resmi peserta sertifikasi Batch 3 PERADI KHARISMA.</p>
 
-            <div class="drive-buttons" id="driveButtons">
-                <!-- filled by JS -->
-            </div>
+            <div class="drive-buttons" id="driveButtons"></div>
 
             <div class="sert-stats">
                 <div><span class="sert-stat-num" id="statTotal">-</span><span class="sert-stat-label">Total
@@ -525,7 +521,7 @@
 
     <!-- TABLE -->
     <div class="sert-main">
-        <div class="sect-label" id="sectionLabel">Daftar Peserta — Batch 1</div>
+        <div class="sect-label" id="sectionLabel">Daftar Peserta — Batch 3</div>
         <div class="table-card">
             <div class="table-head">
                 <div>No.</div>
@@ -541,59 +537,303 @@
                 <p>Tidak ditemukan hasil untuk "<span id="emptyQuery"></span>"</p>
             </div>
         </div>
-        <p class="page-note">Halaman ini bersifat <span>PRIVATE</span> — PERADI KHARISMA © 2026</p>
+        <p class="page-note">Halaman ini bersifat <span>PRIVATE</span> — PERADI KHARISMA &copy; 2026</p>
     </div>
 
     <script>
-        var BATCH_NUM = 1;                         // Nomor batch halaman ini
+        var BATCH_NUM = 3;
         var STORAGE_KEY = 'peradi_batch_' + BATCH_NUM;
-        var MASTER_KEY = 'peradi_sertifikasi_v2';   // Sama dengan sertifikasi.html
+        var MASTER_KEY = 'peradi_sertifikasi_v2';
 
-        // Fallback data — digunakan jika localStorage belum pernah diisi
         var FALLBACK = {
-            batchNum: 1, name: 'Paralegal & C.CPL', year: '2025',
+            batchNum: 3, name: 'CPA', year: '2026',
             driveSert: '', driveKta: '',
             peserta: [
-                "Setia Wati, CPP., C.CPL.", "Erinaldi, S.ST., CPP.", "Oktonius Ndruru, S.H., CPP.",
-                "Moh. Ainul Yaqin, S.Pd.I., CPP.", "Nina Christiana, S.H., CPP.", "Dwi Setiyono, S.H., CPP.",
-                "Muhammad Rifqi Riza, C.PS., CPP.", "Peri Kurnia Hidayat, S.Pi., C.CPL.",
-                "Edi Samsuri, S.Fil.I., S.H., C.CPL.", "Chintia Mutiara Dewi, S.H., C.CPL.",
-                "Kusdianto, S.H., C.CPL.", "Zul Arifin, C.CPL.", "Sumidi, S.Sos., CPP., C.CPL.",
-                "Muhammad Aswan Kelian, S.H., CPP., C.CPL.", "Hadi Susanto, C.CPL.",
-                "Heri Ferianto, C.CPL.", "Lendra Erfanta Miantaka, C.CPL.", "Imam Afkiri, CPP., C.CPL.",
-                "Riadi, S.M., CPP.", "Rizki Abdul Jabbar, S.H., CPP.", "Jupriadil, A.Md., CPP.",
-                "Usnin Kusuma, CPP.", "Raden Dimas Tri Nugroho, S.H., M.H., CPP.",
-                "Sandri Ramadhan Oktaviano, CPP.", "Mayer Ricardo Sagala, S.E., CTA., CPP.",
-                "Panji Satrio Kinasih, S.H., CPP.", "Ripa Mahal Kabul Izati, S.H., CPP.",
-                "Dr (C). Ir. Arsenius, A.P.T., S.T., S.Sos., M.B.A., M.H., C.CPL.",
-                "Happy Ari Kurniawan, S.H., C.CPL.", "Soni Hendrawan, M.B.A., CPLA., CPP.",
-                "Fahri Ade Susilo, CPP.", "Shilpi Yanti, A.Md., CPP.", "Hary Murdianto, S.H., CPP.",
-                "Daimatun Nafi'ah, S.H., CPP.", "Titi Herlina, S.I.Kom., CPP.",
-                "Akhmad Arifin, S.E., CPP., C.CPL.",
-                "Fauzi Rahman, S.H., C.NSP., C.PS., C.HL., C.CL., C.TM., C.CPL.",
-                "Nasiruddin, S.Pd.I., C.CPL.", "Miftahul Huda, S.H., CPP.",
-                "Muhammad Roikhan Mansyurin, S.H., CPP.", "Tamamul Cheri, S.H., CPP.",
-                "Viola Fitri Fauzi, S.H., CPP.", "Nur Kusuma Wardhani, S.H., M.H., CPP.",
-                "Khoirunnisa, S.H., CPP.", "Johanes Amarald Lase, S.H., CPP.",
-                "Sunarto Rizki Saputra, CPP.", "Aufa Isri Zuraida, S.H., CPP.",
-                "Agus Supriyono, A.Md., S.H., CPP.", "Aldi Danuarta Soesanto, S.H., CPP.",
-                "Laelani Yasmetha, CPP.", "Narendra Aryamehr Reza, S.Si., M.Sc., CPP., C.CPL.",
-                "Rifki Alam, S.Ikom., CPP.", "Danang Pamungkas, C.BJ., CIJ., C.INP., CPP.",
-                "Rimba Saiful Bahrum, CPP.", "Avia Ayu Wulandari, S.H., CPP.",
-                "Witanto, S.Th., C.Med., C.PLA., C.CPL.", "Muhammad Hazim, S.H., CPP.",
-                "Cisto, C.CPL.", "Faqih Ash Shobir, S.H., CPP.", "Fitriani Rosalila, S.E., CPP., C.CPL."
+                "Dempsey Joost Nelwan, CPA.",
+                "Riadi, S.M., CPP., C.CPL., CPA.",
+                "Dr. Ami Karmila, MBA., DBA., CHCO., CPA., CPP.",
+                "Imam Syaifuddin, CPA.",
+                "Fachita Rahmadiani, CPA.",
+                "Amsal Boy Karto Siregar, CPA.",
+                "Alam Surya Pratama, CPA.",
+                "Ilham Aminnudin Aly, CPA.",
+                "Rusriyanto, CPA.",
+                "Fransiskus Corneles Wowiling, S.H., C.GMC., C.TMP., CPA.",
+                "Abdurrahman Assayuthi, S.H., M.H., CPA.",
+                "Muhammad Zacky Kurniawan, CPA.",
+                "Usep Purnama, S.Farm., CPA.",
+                "Andi Tjahjady, S.H., CPA.",
+                "M. Faiq Mudzofar, CPA.",
+                "Randi Sahreza, S,H., CPA.",
+                "Teresia Jennifer Elisa Sinurat, CPA.",
+                "Michael Alchin Sandy Hadylaw, S.H., CPA.",
+                "Asifa Sutera Mawarni, CPA.",
+                "Mulyono Subroto, S.H. CPA.",
+                "Dimas Rangga Luxmana, CPA.",
+                "Ampu Sakum, CPP., CPA.",
+                "Fajar Sumantri, CPP., CPA.",
+                "Tan Rusli, CPP., CPA.",
+                "Irma Nur Rohma, CPA.",
+                "KH. Hairudin, S.H.I., C.CPL., CPP., CPA., CLP.",
+                "Muhammad Salman Alfarisi, CPA.",
+                "Gita Angelica, CPA.",
+                "Ujang Suharyadi, S.Pd.I., CPA.",
+                "Muh. Farid Hilmy, S.H., CPA.",
+                "Nurlaila Azizah, S.H., CPA.",
+                "Rizki febriaty, S.H., CPA.",
+                "Ulum, CPA.",
+                "Bob Fallah, C.BJ., CPA.",
+                "Muhammad Anggi, CPA.",
+                "Yosi Karmawan, CPA.",
+                "Deborah, S.H., CPA.",
+                "Hericha Ila Gustiawan Saputra, S.H., C.LTS., C.BTS., C.PW., C.IJ., CPA.",
+                "Auliana Soffa Majida, CPA.",
+                "Risma Allya Maharani, CPA.",
+                "Hendra Saputra, CPA.",
+                "Danu Purdianto, CPP., CPA.",
+                "Lusi Ambarwati, CPA.",
+                "Muhammad Rizki, S.Kom., M.H., CPA.",
+                "Brigitta Samuella Gunawan, CPA.",
+                "Herawati, CPA.",
+                "Alim Bahri, CPA.",
+                "Tri Puspital, S.Sos., CPA.",
+                "Muhammad Rayhan Jabir, CPA.",
+                "Stevani Agustin, CPA.",
+                "Guntur Supriyadi, S.H., CPA.",
+                "Putri Gita Safitri, CPA.",
+                "Amarullah, S.Sos.I., M.H., CPM., CPA.",
+                "Ruspiadi, CPA.",
+                "Dr. Neneng Nurjanah, M.PD., CPA.",
+                "Jusup Koe Hoea, S.Pd., CPA.",
+                "Nursoleh Abdul Karim, CPA.",
+                "Cevi Herdian, B.Sc., M.Sc., CPA.",
+                "Kasan Munasir, S.H., CPA.",
+                "Putri Eka Pratiwi, C.PS., CPA.",
+                "Untung, CPA.",
+                "Digdo Sutjahjo, S.E., M.Si., CPA.",
+                "Nilam Megasari, CPA.",
+                "Khabib Umar, S.T., MAP., CPA.",
+                "Rima Ramadhani Nur Hanifah S.Ikom., M.Ikom., CPA.",
+                "Acita Parenza Azisya S.M., MAP., CPA.",
+                "Agus Nirwanto, ST., C. Med., CPP., CPA.",
+                "Naomi Kathleen Godiva, S.H., CPA.",
+                "R. Wakhid Khoirudin, S.M., CPA., CPP., CPS., C.Mtr.",
+                "Mayrin Vania Avelya Martina Simanjuntak, S.H., CPA.",
+                "Tiara Khoirun Nisak, S.H., CPA.",
+                "Shinta Mughniyah Eka Putri, CPA.",
+                "Agnes Widananti, S.H., CPA.",
+                "Alyandra Deyan Amafesia, CPA.",
+                "Syaifudin, CPA.",
+                "Siddiq, CPA.",
+                "Diah Eka Wahyuningsih, SE., M.Ak., QIA., CT., CPA.",
+                "Aris Eko Ismayanto, CPA.",
+                "Heri Kiswanto, CPA.",
+                "Yoga Yudistira, SKP.,C.LMA., CPA.",
+                "Irena Florencia, CPA.",
+                "Abdul Rokhim, ANT-lll., CPA.",
+                "H. Arif Sugiarto, S.H., M.Pd., CPA.",
+                "Ronald Lukman A.md Ak. C.Med., CPA.",
+                "Rio Maulana Hekumiah, CPA.",
+                "Azizi Kesuma Ningsih, S.H., CPA.",
+                "Gian Permana, CPA.",
+                "Saidul Amri Simanullang, S.E., CPA.",
+                "Martha Nurshandy, S.Pi, M.Pd, Gr., CPA.",
+                "Muhammad Hilmy Ramadhan, S.H., CPA.",
+                "Ahmad Syihab, S.H., CPA.",
+                "Sunardin, S.Kom., CPA.",
+                "Wawan, S.S., CPA.",
+                "Rio Adi Syahputra, S.H., CPA.",
+                "Sudarsono Sagala, S.H., CPA.",
+                "Asril Naska, S.Hi., CPA.",
+                "Harsha Pradipta, CPA.",
+                "Ikadiah Widayanti, CPA.",
+                "Hasaran Syahputra Pane, CPA.",
+                "Ahmad Shopian Alfiansyah, S.Pd., CPA.",
+                "Agata Vita Ribudian Sari, CPA.",
+                "H. Mukroni, S.E., M.Si., Kp., CPA.",
+                "Josua Jaya Syahputra Siagian, CPA.",
+                "Fika Agustiani, CPA.",
+                "Ukar Sukarna, S.E., M.M., CPA.",
+                "Sartono Muhtar, S.Pd., CPA.",
+                "Fahmi Aliffio Yudhistira, S.H., CPA.",
+                "Surono, CPA.",
+                "Ida Bagus Cakra D, S.Sos., RFP., CPA.",
+                "Tiara Silfana, CPA.",
+                "Ahmad Wahyu Ramadhan, CPA.",
+                "Lenny Latif, S.Pd., M.Pd., CPA.",
+                "Aisyarah Nur Syamsu Ambo Bola, S.M., CPA.",
+                "Tafsir Sijaya, CPA.",
+                "Fatimah Azzahra, S.H., CPA.",
+                "Pendi, CPA.",
+                "Mochamad Rifki Saeful Akbar, S.Pd., CPA.",
+                "Sarbani, A.Md., CPA.",
+                "Amri Irawan, CPA.",
+                "Setia Aji, S.H., CPA.",
+                "Wiwit Damayanti Putri, CPA.",
+                "Aprianur, CPA.",
+                "Teguh Firmansyah, CPA.",
+                "Nurlinda Komala, S.E., M.M., CPA.",
+                "Nurul Huda, CPA.",
+                "Ibrahim, CPA.",
+                "Romlan, S.H., C.CLE., CPA.",
+                "H. Agus Gunawan, CPA.",
+                "Assafinatul Hidayah, S.H., CPA.",
+                "Dr. Agus Salim, S.Sy., M.H., CPA.",
+                "Ridwan firdaus, CPA.",
+                "Nabil Syareef Al Rasyid, CCPA., CDC., CPSc., Cmev., CPA.",
+                "Fikri Aminudin Tabrizy, S.H., CPA.",
+                "Hilda Oktavi Alvianita, S.Psi., CDME., CPA.",
+                "Riwin, S.Sos., CPA.",
+                "Haerul Purwansyah, CPA.",
+                "Indah Nurhayanti, CPA.",
+                "Rolianda, S.H., M.H., CPA.",
+                "Dela Puspita Sapitri, S.H., CPA.",
+                "Sella Monika, S.H., CPA.",
+                "Muhammad Fahmi Ramadani, S.H., CPA.",
+                "Asep Lili Mulyadi, CPA.",
+                "Asep Karmawan, CPA.",
+                "Muchamad Adit Setya Cahaya, S.H., CPA.",
+                "M. Bintang Nugraha, S.H., CPA.",
+                "apt. Antonius Bayu Aribowo, S.Farm., FISQua., M.K.M., CPA.",
+                "Rohaedi, CPA.",
+                "Moh Burhanudin Nehru, CPA.",
+                "Nabila Adzka Fikriya Bahri, S.H., CPA.",
+                "Diva Diani Araminta Maylafayza, S.H., CPA.",
+                "Jhoni Pratama, CPA.",
+                "Muhammad Yugik Prasetiawan, S.H., CPA.",
+                "Muhammad Imam Fakhruzi, S.H., CPA.",
+                "Anang Fuadillah Mustofa, CPA.",
+                "Ahmad Izzuddin Ihsan, CPA.",
+                "Arifudin, S.Pd.I., M.H., CPA.",
+                "Feri Gunawan, CPA.",
+                "Pedi Sukuran, CPA.",
+                "Haikal Fakhrezi Hariyudi, S.H., CPA.",
+                "Chairul Syam, CPA.",
+                "Woro Putan Agung Pamungkas, M.Pd., CPA.",
+                "Zainul Arifin, CPA.",
+                "Hendra Yulianto, CPA.",
+                "Nur Fajri Arifin, ST., CPA.",
+                "Sri Indah Lestari, CPA.",
+                "Abdullah, CPA.",
+                "Isra Amaliah, CPA.",
+                "Zahra Alyssa Larasati, CPA.",
+                "Maria Theresia Kristiana, ST., CPA.",
+                "Triyan Kevin Ada, CPA.",
+                "Eti Kusharyanti, CPA.",
+                "Anggela Maulita Abiba, S.H., CPA.",
+                "Murni, CPA.",
+                "Makhrus Paujul Bahri, CPA.",
+                "Kamil Wahyudi, S.H., CPA.",
+                "Gibral Alfan Thariqillah, CPA.",
+                "Mutiara Ratu, S.H., CPA.",
+                "Dian Purwaningtyas, CPA.",
+                "Muhamad Supriyadi, CPA.",
+                "Ria Wulandari, CPA.",
+                "R.T Andreas SHT, CPA.",
+                "Tukiyat, CPA.",
+                "Vina Rokhmawati, CPA.",
+                "Ira Susanti, S.H., M.M., CPA.",
+                "Saskia Virla Azzahra, S.H., CPA.",
+                "Lingga Primadi, S.H., CPA.",
+                "Ocha Miyanda, S.H., CPA.",
+                "Mavegar H.R.P.S, S.M., CPA.",
+                "Angga Rediansyah, S.H., CPA.",
+                "Hirman, S.E., CPA.",
+                "Indra Satriya, CPA.",
+                "Kemurahan Nicot Bee, S.H., CPA.",
+                "Ridwansyah, S.H., CPA.",
+                "Wahyudi, S.H., CPA.",
+                "Joshua Namora Sende Hasibuan, S.H., CPA.",
+                "Zulfikar, MBA., CPA.",
+                "Annes .A. Achmad .S.H., CCD., CPLA., CPA.",
+                "Stefanus, S.H., CPA.",
+                "Hendra, SE.I, CPA.",
+                "Nova Utami Asih, CPA.",
+                "Putri Zahwa, S.H., CPA.",
+                "Herlan, S.T., CPA.",
+                "Sherly Putri Nurhayati, CPA.",
+                "Trian Adisaputra, A.Md, S.I.P., CPA.",
+                "Dhidhit Widyanto, CPA.",
+                "Reni Widi Lestari, CPA.",
+                "Tan Vincent Jonathan, CPA.",
+                "Heru Afiranto, CPA.",
+                "A. Mustofa, CPA.",
+                "Daniel Darwis, CPA.",
+                "Aditya Nugraha, CPA.",
+                "Aam Munawar Yasin, S.H., CPA.",
+                "Nora Tri Winara, S.H., CPA.",
+                "Emsri Ezni, CPA.",
+                "Eko Juniardi, S.H., CPA.",
+                "Andree, CPA.",
+                "Ir. Lungguk Sibuea, S.T., M.T., CPA.",
+                "Adly, S.Pd., M.M., CPA.",
+                "Hasbi Alfarabi Araniri, CPA.",
+                "H. Abdul Rahman, S.H., CPA.",
+                "Apri Ardiyan, S.Pd., CPA.",
+                "Bukhari Daud, S.E., CPA.",
+                "Agus Sudjeni, S.H.I., CPM., CPA., CPCLE., CPP.",
+                "Dimas Agus Setyo Saputra, CPA.",
+                "Suharjito, S.H., M.Si., CPA.",
+                "Boby Yuda Pratama., CPA.",
+                "Ahmad Aqil Faruq., CPA.",
+                "Wanwan Herdiansyah, CPA.",
+                "Nunu Nugraha, CPA.",
+                "Dicky Nugraha, CPA.",
+                "Yehezkiel Ebenezer, S.H., CPA.",
+                "Safrial Arifin, CPA.",
+                "Wiwik Sukrisyanto, CPA.",
+                "Deka Prasetio Saputra S.Sos., CPA.",
+                "Eman Setiana, S.H., CPA.",
+                "Asep Rusmana, ST., M.M., CPA.",
+                "Maria Bricillia Ojan, S.H., CPA.",
+                "Dedeh Latipah, S.Pd, M.H., CPA.",
+                "Maharani Salsabilla, CPA.",
+                "Syubhan Akib, S.H., M.I.Kom., CPA.",
+                "Amiyati, S.H., CPA.",
+                "Ariel Ardian, CPA.",
+                "Moh Udi Sukono., CPA.",
+                "Bimo Andono, S.H., M.M., CPA.",
+                "Stefanus Sugiyantoro, S.H., CPA.",
+                "Ade Yeswa Sahea., M.Mar., CPA.",
+                "Kevin Andrew Valentino, S.,H., CPA.",
+                "Multazam Ali Ridha, S.H., CPA.",
+                "Rumiyani, S.H., M.M., CPA.",
+                "apt. Bardaeni, S.Farm., M.H., CPA.",
+                "Arif Hermansyah, S.E., BKP., CPA.",
+                "Yudi Santoso, CPA.",
+                "Edy Susanto, CPA.",
+                "Anita Gustina Ardiana, S.AP., M.A., CPA.",
+                "Daud Camyel.T, S.E., CPA.",
+                "Slamet Supriyadi S.PdI., CPA.",
+                "Budi Gunawan Suhit, CPA.",
+                "Elvian Hendri, CPA.",
+                "Muhamad Ravi Shidiq, S.H., CPA.",
+                "Cecep Sukandar, S.H., CPA.",
+                "Affan Adyuanas, CPA.",
+                "Firmansyah Satjawidjaja, S.H., CPA.",
+                "Amira Nurfadilah Mamonto, S.H., CPA.",
+                "Akzan, SE., CPA.",
+                "Ryan Adhi Tama, S.H., CPA.",
+                "Sarlotha Febiola Mramra, S.H., CPA.",
+                "Angelica Rosario Lopis, S.H., CPA.",
+                "Zaenul Gufron, S.H., CPA.",
+                "Ach Sauqi Muzakki, CPA.",
+                "Happy Julianto, S.T., CPA.",
+                "Anita, CPA.",
+                "Nuraini Tranggano, CPA.",
+                "M Indra Bachtiar, S.Pd., CPA.",
+                "Philipus Joehayden, S.H., SP.d., CPA.",
+                "Pidarani, CPA."
             ]
         };
 
         var DATA_PESERTA = [];
 
         function loadBatchData() {
-            // Coba baca dari key batch spesifik
             try {
                 var raw = localStorage.getItem(STORAGE_KEY);
                 if (raw) return JSON.parse(raw);
             } catch (e) { }
-            // Coba cari dari master storage
             try {
                 var master = localStorage.getItem(MASTER_KEY);
                 if (master) {
@@ -646,27 +886,20 @@
             var batch = loadBatchData();
             DATA_PESERTA = batch.peserta || [];
 
-            // Update hero
             document.getElementById('heroTitle').textContent = batch.name || 'Sertifikasi';
             document.getElementById('heroDesc').textContent = 'Daftar resmi ' + DATA_PESERTA.length + ' peserta sertifikasi Batch ' + BATCH_NUM + ' PERADI KHARISMA.';
             document.getElementById('statTotal').textContent = DATA_PESERTA.length;
             document.getElementById('statTahun').textContent = batch.year || '-';
             document.title = 'Batch ' + BATCH_NUM + ' — ' + batch.name + ' — PERADI KHARISMA';
 
-            // Drive buttons
             var db = document.getElementById('driveButtons');
             db.innerHTML = '';
-            if (batch.driveSert) {
-                db.innerHTML += '<a href="' + batch.driveSert + '" target="_blank" class="btn-drive btn-drive-gold"><i class="fab fa-google-drive"></i> Drive Sertifikasi</a>';
-            }
-            if (batch.driveKta) {
-                db.innerHTML += '<a href="' + batch.driveKta + '" target="_blank" class="btn-drive btn-drive-outline"><i class="fas fa-id-card"></i> Drive KTA</a>';
-            }
+            if (batch.driveSert) db.innerHTML += '<a href="' + batch.driveSert + '" target="_blank" class="btn-drive btn-drive-gold"><i class="fab fa-google-drive"></i> Drive Sertifikasi</a>';
+            if (batch.driveKta) db.innerHTML += '<a href="' + batch.driveKta + '" target="_blank" class="btn-drive btn-drive-outline"><i class="fas fa-id-card"></i> Drive KTA</a>';
 
             render('');
         }
 
-        // ── NAVBAR ─────────────────────────────────────────────────
         document.addEventListener('DOMContentLoaded', function () {
             var mt = document.getElementById('menuToggle'), nm = document.getElementById('navMenu'), nb2 = document.getElementById('navBackdrop'), dd = document.querySelectorAll('.dropdown'), b = document.body;
             function openM() { nm.classList.add('active'); nb2.classList.add('active'); b.classList.add('menu-open'); b.style.overflow = 'hidden'; mt.classList.add('active'); mt.innerHTML = '<i class="fas fa-times"></i>'; }
