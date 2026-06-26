@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Database Peserta Sertifikasi — PERADI KHARISMA</title>
+    <title>Batch 1 — Database Peserta Sertifikasi PERADI KHARISMA</title>
     <link rel="icon" href="asset/PERADI.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
@@ -12,19 +12,15 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Offset body for fixed navbar */
         body {
             padding-top: var(--navbar-h, 72px);
+            background: #f4f6f9;
         }
 
-        /* ===== HERO ===== */
         .sert-hero {
-            background: linear-gradient(115deg,
-                    rgba(10, 35, 66, 0.97) 0%,
-                    rgba(44, 76, 124, 0.92) 60%,
-                    rgba(10, 35, 66, 0.85) 100%),
+            background: linear-gradient(115deg, rgba(10, 35, 66, 0.97) 0%, rgba(44, 76, 124, 0.92) 60%, rgba(10, 35, 66, 0.85) 100%),
                 url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            padding: 3.5rem 0 2.8rem;
+            padding: 3rem 0 2.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -56,7 +52,7 @@
             border: 1px solid rgba(201, 169, 89, 0.35);
             border-radius: 50px;
             padding: 0.35rem 1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 2.5px;
@@ -76,7 +72,7 @@
             font-weight: 700;
             color: #fff;
             line-height: 1.12;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
         }
 
         .sert-hero h1 em {
@@ -85,20 +81,19 @@
         }
 
         .sert-hero p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.72);
             font-weight: 300;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             max-width: 520px;
             line-height: 1.8;
         }
 
-        /* Drive buttons */
         .drive-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
-            margin-bottom: 2.2rem;
+            margin-bottom: 1.8rem;
         }
 
         .btn-drive {
@@ -107,9 +102,8 @@
             gap: 0.55rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-            padding: 0.7rem 1.5rem;
+            font-size: 0.78rem;
+            padding: 0.65rem 1.4rem;
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s;
@@ -117,17 +111,29 @@
         }
 
         .btn-drive-gold {
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            color: #fff;
+            background: var(--secondary);
+            color: var(--primary);
+            box-shadow: 0 6px 20px rgba(201, 169, 89, 0.3);
         }
 
+        .btn-drive-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(201, 169, 89, 0.45);
+            background: #d9bb6f;
+            color: var(--primary);
+        }
 
         .btn-drive-outline {
             border: 1.5px solid rgba(255, 255, 255, 0.4);
             color: #fff;
         }
 
-        /* Stats */
+        .btn-drive-outline:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
         .sert-stats {
             display: flex;
             gap: 2.5rem;
@@ -152,7 +158,7 @@
             margin-top: 0.18rem;
         }
 
-        /* ===== STICKY SEARCH ===== */
+        /* ── SEARCH ── */
         .search-bar {
             background: #fff;
             border-bottom: 1px solid var(--gray-light);
@@ -249,7 +255,7 @@
             color: var(--primary);
         }
 
-        /* ===== TABLE AREA ===== */
+        /* ── TABLE ── */
         .sert-main {
             max-width: 1280px;
             margin: 2rem auto;
@@ -358,7 +364,6 @@
             padding: 0 2px;
         }
 
-        /* Empty state */
         .empty-state {
             text-align: center;
             padding: 3.5rem 2rem;
@@ -380,9 +385,24 @@
             margin-bottom: 0.3rem;
         }
 
-        .empty-state small {
-            font-size: 0.75rem;
-            opacity: 0.65;
+        .loading-state {
+            text-align: center;
+            padding: 3.5rem 2rem;
+            color: var(--gray);
+        }
+
+        .loading-state i {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.75rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .page-note {
@@ -398,20 +418,19 @@
             font-weight: 700;
         }
 
-        /* Responsive */
         @media (min-width: 768px) {
             .sert-hero h1 {
-                font-size: 3.2rem;
+                font-size: 3rem;
             }
         }
 
         @media (max-width: 600px) {
             .sert-hero {
-                padding: 2.5rem 0 2rem;
+                padding: 2rem 0 1.8rem;
             }
 
             .sert-hero h1 {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
 
             .drive-buttons {
@@ -433,17 +452,14 @@
 
 <body>
 
-    <!-- ===== NAVBAR — identik dengan index.html ===== -->
+    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="asset/logoperadi.PNG" alt="PERADI Logo" class="logo-image">
-            </div>
+            <div class="logo"><img src="asset/logoperadi.PNG" alt="PERADI Logo" class="logo-image"></div>
             <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="index.html#home" class="nav-link">Beranda</a></li>
-
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" class="nav-link dropdown-toggle">Tentang Kami <i
                                 class="fas fa-chevron-down"></i></a>
@@ -452,7 +468,6 @@
                             <li><a href="index.html#struktur" class="dropdown-item">Struktur Organisasi</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" class="nav-link dropdown-toggle">Layanan <i
                                 class="fas fa-chevron-down"></i></a>
@@ -461,11 +476,9 @@
                             <li><a href="index.html#lawoffice" class="dropdown-item">LawOffice</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item"><a href="index.html#legalitas" class="nav-link">Legalitas</a></li>
                     <li class="nav-item"><a href="index.html#berita" class="nav-link">Berita</a></li>
                     <li class="nav-item"><a href="index.html#footer" class="nav-link">Kontak</a></li>
-
                     <li class="nav-item chat-item">
                         <a href="https://wa.me/628139117286?text=HALO%20PERADI%20KHARISMA" target="_blank"
                             class="chat-btn">
@@ -478,274 +491,202 @@
     </nav>
     <div class="nav-backdrop" id="navBackdrop"></div>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="sert-hero">
         <div class="sert-hero-inner">
-            <div class="sert-eyebrow"><span></span> Database Resmi PERADI KHARISMA <span></span></div>
-            <h1><em>Database Peserta</em><br>Sertifikasi BATCH I</h1>
-            <p>Daftar resmi peserta yang telah mengikuti program sertifikasi PERADI KHARISMA.</p>
+            <div class="sert-eyebrow"><span></span> Batch 01 — PERADI KHARISMA <span></span></div>
+            <h1><em>Peserta Batch 1</em><br><span id="heroTitle">Sertifikasi</span></h1>
+            <p id="heroDesc">Daftar resmi peserta sertifikasi Batch 1 PERADI KHARISMA.</p>
 
-            <!-- ✏️ Ganti href di bawah dengan link Google Drive Anda -->
-            <div class="drive-buttons">
-                <a href="https://drive.google.com/drive/folders/LINK_DRIVE_SERTIFIKASI" target="_blank"
-                    class="btn-drive btn-drive-gold">
-                    <i class="fab fa-google-drive"></i> Drive Sertifikasi
-                </a>
-                <a href="https://drive.google.com/drive/folders/LINK_DRIVE_KTA" target="_blank"
-                    class="btn-drive btn-drive-outline">
-                    <i class="fas fa-id-card"></i> Drive KTA
-                </a>
+            <div class="drive-buttons" id="driveButtons">
+                <!-- filled by JS -->
             </div>
 
             <div class="sert-stats">
-                <div class="stat-item">
-                    <span class="sert-stat-num" id="totalPeserta">0</span>
-                    <span class="sert-stat-label">Total Peserta</span>
-                </div>
+                <div><span class="sert-stat-num" id="statTotal">-</span><span class="sert-stat-label">Total
+                        Peserta</span></div>
+                <div><span class="sert-stat-num" id="statTahun">-</span><span class="sert-stat-label">Tahun</span></div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SEARCH ===== -->
+    <!-- SEARCH -->
     <div class="search-bar">
         <div class="search-bar-inner">
             <div class="search-wrap">
                 <i class="fas fa-search search-ico"></i>
-                <input type="text" class="search-input" id="searchInput" placeholder="Cari nama atau nomor peserta..."
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari nama peserta..."
                     autocomplete="off" spellcheck="false">
-                <button class="btn-clear-s" id="btnClear" title="Hapus"><i class="fas fa-times"></i></button>
+                <button class="btn-clear-s" id="btnClear"><i class="fas fa-times"></i></button>
             </div>
-            <div class="search-meta">
-                Menampilkan <strong id="searchCount">0</strong> data
-            </div>
+            <div class="search-meta">Menampilkan <strong id="searchCount">-</strong> data</div>
         </div>
     </div>
 
-    <!-- ===== MAIN ===== -->
+    <!-- TABLE -->
     <div class="sert-main">
-        <div class="sect-label" id="sectionLabel">Daftar Peserta</div>
-
+        <div class="sect-label" id="sectionLabel">Daftar Peserta — Batch 1</div>
         <div class="table-card">
             <div class="table-head">
                 <div>No.</div>
                 <div>Nama Peserta</div>
             </div>
-            <div class="table-body" id="tableBody"></div>
+            <div class="table-body" id="tableBody">
+                <div class="loading-state"><i class="fas fa-circle-notch"></i>
+                    <p>Memuat data peserta...</p>
+                </div>
+            </div>
             <div class="empty-state" id="emptyState">
                 <i class="fas fa-search"></i>
                 <p>Tidak ditemukan hasil untuk "<span id="emptyQuery"></span>"</p>
-                <small>Coba kata kunci lain atau periksa ejaan</small>
             </div>
         </div>
-
         <p class="page-note">Halaman ini bersifat <span>PRIVATE</span> — PERADI KHARISMA © 2026</p>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            'use strict';
+        var BATCH_NUM = 1;                         // Nomor batch halaman ini
+        var STORAGE_KEY = 'peradi_batch_' + BATCH_NUM;
+        var MASTER_KEY = 'peradi_sertifikasi_v2';   // Sama dengan sertifikasi.html
 
-            // ── NAVBAR MOBILE ──────────────────────────────────────
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
-            const navBackdrop = document.getElementById('navBackdrop');
-            const dropdowns = document.querySelectorAll('.dropdown');
-            const body = document.body;
+        // Fallback data — digunakan jika localStorage belum pernah diisi
+        var FALLBACK = {
+            batchNum: 1, name: 'Paralegal & C.CPL', year: '2025',
+            driveSert: '', driveKta: '',
+            peserta: [
+                "Setia Wati, CPP., C.CPL.", "Erinaldi, S.ST., CPP.", "Oktonius Ndruru, S.H., CPP.",
+                "Moh. Ainul Yaqin, S.Pd.I., CPP.", "Nina Christiana, S.H., CPP.", "Dwi Setiyono, S.H., CPP.",
+                "Muhammad Rifqi Riza, C.PS., CPP.", "Peri Kurnia Hidayat, S.Pi., C.CPL.",
+                "Edi Samsuri, S.Fil.I., S.H., C.CPL.", "Chintia Mutiara Dewi, S.H., C.CPL.",
+                "Kusdianto, S.H., C.CPL.", "Zul Arifin, C.CPL.", "Sumidi, S.Sos., CPP., C.CPL.",
+                "Muhammad Aswan Kelian, S.H., CPP., C.CPL.", "Hadi Susanto, C.CPL.",
+                "Heri Ferianto, C.CPL.", "Lendra Erfanta Miantaka, C.CPL.", "Imam Afkiri, CPP., C.CPL.",
+                "Riadi, S.M., CPP.", "Rizki Abdul Jabbar, S.H., CPP.", "Jupriadil, A.Md., CPP.",
+                "Usnin Kusuma, CPP.", "Raden Dimas Tri Nugroho, S.H., M.H., CPP.",
+                "Sandri Ramadhan Oktaviano, CPP.", "Mayer Ricardo Sagala, S.E., CTA., CPP.",
+                "Panji Satrio Kinasih, S.H., CPP.", "Ripa Mahal Kabul Izati, S.H., CPP.",
+                "Dr (C). Ir. Arsenius, A.P.T., S.T., S.Sos., M.B.A., M.H., C.CPL.",
+                "Happy Ari Kurniawan, S.H., C.CPL.", "Soni Hendrawan, M.B.A., CPLA., CPP.",
+                "Fahri Ade Susilo, CPP.", "Shilpi Yanti, A.Md., CPP.", "Hary Murdianto, S.H., CPP.",
+                "Daimatun Nafi'ah, S.H., CPP.", "Titi Herlina, S.I.Kom., CPP.",
+                "Akhmad Arifin, S.E., CPP., C.CPL.",
+                "Fauzi Rahman, S.H., C.NSP., C.PS., C.HL., C.CL., C.TM., C.CPL.",
+                "Nasiruddin, S.Pd.I., C.CPL.", "Miftahul Huda, S.H., CPP.",
+                "Muhammad Roikhan Mansyurin, S.H., CPP.", "Tamamul Cheri, S.H., CPP.",
+                "Viola Fitri Fauzi, S.H., CPP.", "Nur Kusuma Wardhani, S.H., M.H., CPP.",
+                "Khoirunnisa, S.H., CPP.", "Johanes Amarald Lase, S.H., CPP.",
+                "Sunarto Rizki Saputra, CPP.", "Aufa Isri Zuraida, S.H., CPP.",
+                "Agus Supriyono, A.Md., S.H., CPP.", "Aldi Danuarta Soesanto, S.H., CPP.",
+                "Laelani Yasmetha, CPP.", "Narendra Aryamehr Reza, S.Si., M.Sc., CPP., C.CPL.",
+                "Rifki Alam, S.Ikom., CPP.", "Danang Pamungkas, C.BJ., CIJ., C.INP., CPP.",
+                "Rimba Saiful Bahrum, CPP.", "Avia Ayu Wulandari, S.H., CPP.",
+                "Witanto, S.Th., C.Med., C.PLA., C.CPL.", "Muhammad Hazim, S.H., CPP.",
+                "Cisto, C.CPL.", "Faqih Ash Shobir, S.H., CPP.", "Fitriani Rosalila, S.E., CPP., C.CPL.",
+                "Rizki Arifianto, CPP., C.CPL", "Lucky Harun A, CPP. C.CPL", "Fahmi Fajar PI, CPP. C.CPL"
+            ]
+        };
 
-            function openMenu() {
-                navMenu.classList.add('active');
-                navBackdrop.classList.add('active');
-                body.classList.add('menu-open');
-                body.style.overflow = 'hidden';
-                menuToggle.classList.add('active');
-                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-            }
-            function closeMenu() {
-                navMenu.classList.remove('active');
-                navBackdrop.classList.remove('active');
-                body.classList.remove('menu-open');
-                body.style.overflow = '';
-                menuToggle.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                dropdowns.forEach(function (i) { i.classList.remove('active'); });
-            }
+        var DATA_PESERTA = [];
 
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function (e) {
-                    e.preventDefault(); e.stopPropagation();
-                    navMenu.classList.contains('active') ? closeMenu() : openMenu();
+        function loadBatchData() {
+            // Coba baca dari key batch spesifik
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) return JSON.parse(raw);
+            } catch (e) { }
+            // Coba cari dari master storage
+            try {
+                var master = localStorage.getItem(MASTER_KEY);
+                if (master) {
+                    var batches = JSON.parse(master);
+                    var found = batches.find(function (b) { return b.batchNum == BATCH_NUM; });
+                    if (found) return found;
+                }
+            } catch (e) { }
+            return FALLBACK;
+        }
+
+        function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        function hl(text, q) {
+            if (!q) return escHtml(text);
+            var safe = escHtml(text);
+            var esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            return safe.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
+        }
+
+        function render(raw) {
+            var q = (raw || '').trim().toLowerCase();
+            var tb = document.getElementById('tableBody');
+            var es = document.getElementById('emptyState');
+            var countEl = document.getElementById('searchCount');
+            var labelEl = document.getElementById('sectionLabel');
+
+            var list = q ? DATA_PESERTA.filter(function (n) { return n.toLowerCase().includes(q); }) : DATA_PESERTA;
+
+            countEl.textContent = list.length;
+            labelEl.textContent = q ? 'Hasil pencarian "' + document.getElementById('searchInput').value.trim() + '"' : 'Daftar Peserta — Batch ' + BATCH_NUM;
+
+            tb.innerHTML = '';
+
+            if (list.length === 0) {
+                es.style.display = 'block';
+                document.getElementById('emptyQuery').textContent = document.getElementById('searchInput').value.trim();
+            } else {
+                es.style.display = 'none';
+                list.forEach(function (nama, i) {
+                    var row = document.createElement('div');
+                    row.className = 'table-row';
+                    row.style.animationDelay = Math.min(i * 0.02, 0.35) + 's';
+                    row.innerHTML = '<div class="row-no">' + (i + 1) + '</div><div class="row-nama">' + hl(nama, q) + '</div>';
+                    tb.appendChild(row);
                 });
             }
-            if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
+        }
 
-            function dropdownClick(e) {
-                e.preventDefault(); e.stopPropagation();
-                var parent = this.closest('.dropdown');
-                dropdowns.forEach(function (i) { if (i !== parent) i.classList.remove('active'); });
-                parent.classList.toggle('active');
+        function initPage() {
+            var batch = loadBatchData();
+            DATA_PESERTA = batch.peserta || [];
+
+            // Update hero
+            document.getElementById('heroTitle').textContent = batch.name || 'Sertifikasi';
+            document.getElementById('heroDesc').textContent = 'Daftar resmi ' + DATA_PESERTA.length + ' peserta sertifikasi Batch ' + BATCH_NUM + ' PERADI KHARISMA.';
+            document.getElementById('statTotal').textContent = DATA_PESERTA.length;
+            document.getElementById('statTahun').textContent = batch.year || '-';
+            document.title = 'Batch ' + BATCH_NUM + ' — ' + batch.name + ' — PERADI KHARISMA';
+
+            // Drive buttons
+            var db = document.getElementById('driveButtons');
+            db.innerHTML = '';
+            if (batch.driveSert) {
+                db.innerHTML += '<a href="' + batch.driveSert + '" target="_blank" class="btn-drive btn-drive-gold"><i class="fab fa-google-drive"></i> Drive Sertifikasi</a>';
             }
-            function bindDropdowns() {
-                if (window.innerWidth <= 1023) {
-                    dropdowns.forEach(function (item) {
-                        var link = item.querySelector('.dropdown-toggle');
-                        if (link) { link.removeEventListener('click', dropdownClick); link.addEventListener('click', dropdownClick); }
-                    });
-                } else {
-                    dropdowns.forEach(function (i) { i.classList.remove('active'); });
-                }
-            }
-            bindDropdowns();
-            window.addEventListener('resize', function () {
-                if (window.innerWidth > 1023 && navMenu.classList.contains('active')) closeMenu();
-                bindDropdowns();
-            });
-            document.querySelectorAll('.nav-list a:not(.dropdown-toggle)').forEach(function (link) {
-                link.addEventListener('click', function () { if (window.innerWidth <= 1023) closeMenu(); });
-            });
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) closeMenu();
-            });
-
-            // ── NAVBAR SCROLL SHADOW ───────────────────────────────
-            var navbar = document.getElementById('navbar');
-            if (navbar) {
-                window.addEventListener('scroll', function () {
-                    navbar.classList.toggle('scrolled', window.scrollY > 60);
-                }, { passive: true });
-            }
-
-            // =======================================================
-            // ✏️ TAMBAH / EDIT DATA PESERTA DI SINI
-            // Format: { no: angka, nama: "Nama Lengkap" }
-            // =======================================================
-            var DATA_PESERTA = [
-                { no: 1, nama: "Setia Wati, CPP., C.CPL." },
-                { no: 2, nama: "Erinaldi, S.ST., CPP." },
-                { no: 3, nama: "Oktonius Ndruru, S.H., CPP." },
-                { no: 4, nama: "Moh. Ainul Yaqin, S.Pd.I., CPP." },
-                { no: 5, nama: "Nina Christiana, S.H., CPP." },
-                { no: 6, nama: "Dwi Setiyono, S.H., CPP." },
-                { no: 7, nama: "Muhammad Rifqi Riza, C.PS., CPP." },
-                { no: 8, nama: "Peri Kurnia Hidayat, S.Pi., C.CPL." },
-                { no: 9, nama: "Edi Samsuri, S.Fil.I., S.H., C.CPL." },
-                { no: 10, nama: "Chintia Mutiara Dewi, S.H., C.CPL." },
-                { no: 11, nama: "Kusdianto, S.H., C.CPL." },
-                { no: 12, nama: "Zul Arifin, C.CPL." },
-                { no: 13, nama: "Sumidi, S.Sos., CPP., C.CPL." },
-                { no: 14, nama: "Muhammad Aswan Kelian, S.H., CPP., C.CPL." },
-                { no: 15, nama: "Hadi Susanto, C.CPL." },
-                { no: 16, nama: "Heri Ferianto, C.CPL." },
-                { no: 17, nama: "Lendra Erfanta Miantaka, C.CPL." },
-                { no: 18, nama: "Imam Afkiri, CPP., C.CPL." },
-                { no: 19, nama: "Riadi, S.M., CPP." },
-                { no: 20, nama: "Rizki Abdul Jabbar, S.H., CPP." },
-                { no: 21, nama: "Jupriadil, A.Md., CPP." },
-                { no: 22, nama: "Usnin Kusuma, CPP." },
-                { no: 23, nama: "Raden Dimas Tri Nugroho, S.H., M.H., CPP." },
-                { no: 24, nama: "Sandri Ramadhan Oktaviano, CPP." },
-                { no: 25, nama: "Mayer Ricardo Sagala, S.E., CTA., CPP." },
-                { no: 26, nama: "Panji Satrio Kinasih, S.H., CPP." },
-                { no: 27, nama: "Ripa Mahal Kabul Izati, S.H., CPP." },
-                { no: 28, nama: "Dr (C). Ir. Arsenius, A.P.T., S.T., S.Sos., M.B.A., M.H., C.CPL." },
-                { no: 29, nama: "Happy Ari Kurniawan, S.H., C.CPL." },
-                { no: 30, nama: "Soni Hendrawan, M.B.A., CPLA., CPP." },
-                { no: 31, nama: "Fahri Ade Susilo, CPP." },
-                { no: 32, nama: "Shilpi Yanti, A.Md., CPP." },
-                { no: 33, nama: "Hary Murdianto, S.H., CPP." },
-                { no: 34, nama: "Daimatun Nafi'ah, S.H., CPP." },
-                { no: 35, nama: "Titi Herlina, S.I.Kom., CPP." },
-                { no: 36, nama: "Akhmad Arifin, S.E., CPP., C.CPL." },
-                { no: 37, nama: "Fauzi Rahman, S.H., C.NSP., C.PS., C.HL., C.CL., C.TM., C.CPL." },
-                { no: 38, nama: "Nasiruddin, S.Pd.I., C.CPL." },
-                { no: 39, nama: "Miftahul Huda, S.H., CPP." },
-                { no: 40, nama: "Muhammad Roikhan Mansyurin, S.H., CPP." },
-                { no: 41, nama: "Tamamul Cheri, S.H., CPP." },
-                { no: 42, nama: "Viola Fitri Fauzi, S.H., CPP." },
-                { no: 43, nama: "Nur Kusuma Wardhani, S.H., M.H., CPP." },
-                { no: 44, nama: "Khoirunnisa, S.H., CPP." },
-                { no: 45, nama: "Johanes Amarald Lase, S.H., CPP." },
-                { no: 46, nama: "Sunarto Rizki Saputra, CPP." },
-                { no: 47, nama: "Aufa Isri Zuraida, S.H., CPP." },
-                { no: 48, nama: "Agus Supriyono, A.Md., S.H., CPP." },
-                { no: 49, nama: "Aldi Danuarta Soesanto, S.H., CPP." },
-                { no: 50, nama: "Laelani Yasmetha, CPP." },
-                { no: 51, nama: "Narendra Aryamehr Reza, S.Si., M.Sc., CPP., C.CPL." },
-                { no: 52, nama: "Rifki Alam, S.Ikom., CPP." },
-                { no: 53, nama: "Danang Pamungkas, C.BJ., CIJ., C.INP., CPP." },
-                { no: 54, nama: "Rimba Saiful Bahrum, CPP." },
-                { no: 55, nama: "Avia Ayu Wulandari, S.H., CPP." },
-                { no: 56, nama: "Witanto, S.Th., C.Med., C.PLA., C.CPL." },
-                { no: 57, nama: "Muhammad Hazim, S.H., CPP." },
-                { no: 58, nama: "Cisto, C.CPL." },
-                { no: 59, nama: "Faqih Ash Shobir, S.H., CPP." },
-                { no: 60, nama: "Fitriani Rosalila, S.E., CPP., C.CPL." },
-            ];
-            // =======================================================
-
-            document.getElementById('totalPeserta').textContent = DATA_PESERTA.length;
-            document.getElementById('searchCount').textContent = DATA_PESERTA.length;
-
-            // ── RENDER ──────────────────────────────────────────────
-            function hl(text, q) {
-                if (!q) return text;
-                var esc = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                return text.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>');
-            }
-
-            function render(raw) {
-                var q = (raw || '').trim().toLowerCase();
-                var tableBody = document.getElementById('tableBody');
-                var emptyState = document.getElementById('emptyState');
-                var countEl = document.getElementById('searchCount');
-                var labelEl = document.getElementById('sectionLabel');
-
-                var list = q
-                    ? DATA_PESERTA.filter(function (p) {
-                        return p.nama.toLowerCase().includes(q) || String(p.no).includes(q);
-                    })
-                    : DATA_PESERTA;
-
-                countEl.textContent = list.length;
-                labelEl.textContent = q
-                    ? 'Hasil pencarian "' + document.getElementById('searchInput').value.trim() + '"'
-                    : 'Daftar Peserta';
-
-                tableBody.innerHTML = '';
-
-                if (list.length === 0) {
-                    emptyState.style.display = 'block';
-                    document.getElementById('emptyQuery').textContent =
-                        document.getElementById('searchInput').value.trim();
-                } else {
-                    emptyState.style.display = 'none';
-                    list.forEach(function (p, idx) {
-                        var row = document.createElement('div');
-                        row.className = 'table-row';
-                        row.style.animationDelay = Math.min(idx * 0.025, 0.3) + 's';
-                        row.innerHTML =
-                            '<div class="row-no">' + p.no + '</div>' +
-                            '<div class="row-nama">' + hl(p.nama, q) + '</div>';
-                        tableBody.appendChild(row);
-                    });
-                }
+            if (batch.driveKta) {
+                db.innerHTML += '<a href="' + batch.driveKta + '" target="_blank" class="btn-drive btn-drive-outline"><i class="fas fa-id-card"></i> Drive KTA</a>';
             }
 
             render('');
+        }
 
-            // ── SEARCH HANDLER ──────────────────────────────────────
-            var searchInput = document.getElementById('searchInput');
-            var btnClear = document.getElementById('btnClear');
+        // ── NAVBAR ─────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', function () {
+            var mt = document.getElementById('menuToggle'), nm = document.getElementById('navMenu'), nb2 = document.getElementById('navBackdrop'), dd = document.querySelectorAll('.dropdown'), b = document.body;
+            function openM() { nm.classList.add('active'); nb2.classList.add('active'); b.classList.add('menu-open'); b.style.overflow = 'hidden'; mt.classList.add('active'); mt.innerHTML = '<i class="fas fa-times"></i>'; }
+            function closeM() { nm.classList.remove('active'); nb2.classList.remove('active'); b.classList.remove('menu-open'); b.style.overflow = ''; mt.classList.remove('active'); mt.innerHTML = '<i class="fas fa-bars"></i>'; dd.forEach(function (i) { i.classList.remove('active'); }); }
+            if (mt) mt.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); nm.classList.contains('active') ? closeM() : openM(); });
+            if (nb2) nb2.addEventListener('click', closeM);
+            function dc(e) { e.preventDefault(); e.stopPropagation(); var p = this.closest('.dropdown'); dd.forEach(function (i) { if (i !== p) i.classList.remove('active'); }); p.classList.toggle('active'); }
+            function bd() { if (window.innerWidth <= 1023) { dd.forEach(function (item) { var l = item.querySelector('.dropdown-toggle'); if (l) { l.removeEventListener('click', dc); l.addEventListener('click', dc); } }); } else { dd.forEach(function (i) { i.classList.remove('active'); }); } }
+            bd(); window.addEventListener('resize', function () { if (window.innerWidth > 1023 && nm.classList.contains('active')) closeM(); bd(); });
+            document.querySelectorAll('.nav-list a:not(.dropdown-toggle)').forEach(function (l) { l.addEventListener('click', function () { if (window.innerWidth <= 1023) closeM(); }); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nm.classList.contains('active')) closeM(); });
+            var nb = document.getElementById('navbar'); if (nb) window.addEventListener('scroll', function () { nb.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
 
-            searchInput.addEventListener('input', function () {
-                btnClear.classList.toggle('show', this.value.length > 0);
-                render(this.value);
-            });
-            btnClear.addEventListener('click', function () {
-                searchInput.value = '';
-                this.classList.remove('show');
-                searchInput.focus();
-                render('');
-            });
+            initPage();
+
+            var si = document.getElementById('searchInput');
+            var bc = document.getElementById('btnClear');
+            si.addEventListener('input', function () { bc.classList.toggle('show', this.value.length > 0); render(this.value); });
+            bc.addEventListener('click', function () { si.value = ''; this.classList.remove('show'); si.focus(); render(''); });
         });
     </script>
 </body>

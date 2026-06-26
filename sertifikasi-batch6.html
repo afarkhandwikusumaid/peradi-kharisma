@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Database Peserta Pendidikan Khusus Profesi Advokat PERADI KHARISMA</title>
+    <title>Batch 6 — Database Peserta Sertifikasi PERADI KHARISMA</title>
     <link rel="icon" href="asset/PERADI.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
@@ -492,10 +492,9 @@
     <!-- HERO -->
     <section class="sert-hero">
         <div class="sert-hero-inner">
-            <div class="sert-eyebrow"><span></span> Pendidikan Khusus Profesi Advokat — PERADI KHARISMA <span></span>
-            </div>
-            <h1><em>Peserta Pendidikan Khusus Profesi Advokat</em><br><span id="heroTitle">Sertifikasi</span></h1>
-            <p id="heroDesc">Daftar resmi peserta sertifikasi Pendidikan Khusus Profesi Advokat PERADI KHARISMA.</p>
+            <div class="sert-eyebrow"><span></span> Batch 06 — PERADI KHARISMA <span></span></div>
+            <h1><em>Peserta Batch 6</em><br><span id="heroTitle">Sertifikasi</span></h1>
+            <p id="heroDesc">Daftar resmi peserta sertifikasi Batch 6 PERADI KHARISMA.</p>
 
             <div class="drive-buttons" id="driveButtons"></div>
 
@@ -522,10 +521,10 @@
 
     <!-- TABLE -->
     <div class="sert-main">
-        <div class="sect-label" id="sectionLabel">Daftar Peserta — Pendidikan Khusus Profesi Advokat</div>
+        <div class="sect-label" id="sectionLabel">Daftar Peserta — Batch 6</div>
         <div class="table-card">
             <div class="table-head">
-                <div>No.</div>
+                <div>NIA</div>
                 <div>Nama Peserta</div>
             </div>
             <div class="table-body" id="tableBody">
@@ -542,43 +541,36 @@
     </div>
 
     <script>
-        var BATCH_NUM = 'PKPA & UPA';
+        var BATCH_NUM = 6;
         var STORAGE_KEY = 'peradi_batch_' + BATCH_NUM;
         var MASTER_KEY = 'peradi_sertifikasi_v2';
 
         var FALLBACK = {
-            batchNum: 'PKPA & UPA', name: 'PKPA & UPA', year: '2026',
+            batchNum: 6, name: 'CPP', year: '2026',
             driveSert: '', driveKta: '',
             peserta: [
-                "Yusa Rahman Sanjani, S.H.",
-                "Kusdiyanto, S.H.",
-                "Astrit Prayoga Wicaksono, S.H.",
-                "Rahmad Dilaga, S.H., CPP.",
-                "Tan Bonaventura Andika S.,S.E., M.M., CRMA., MDISCA., CPP.",
-                "Dahman Sirait, S.H., CPP.",
-                "Amelia Cohenta, S.H., CPP.",
-                "Hartoyo, C.CPPOB., GMP., HACCP., CPP.",
-                "Imam Afkiri, CPP., C.CPL.",
-                "Ariadi, S.H., M.H., CPP.",
-                "Baharudin, S.H.",
-                "Wuryanto, S.H.",
-                "Stefanus Adii, S.H.",
-                "Teguh Rachmanto, S.H.",
-                "Stefanus, S.H., CPA.",
-                "Ahmad Izzuddin Ihsan, CPA",
-                "Bambang Willianto, CFI., CPA., Mak., CPP.",
-                "Annes .A. Achmad .S.H., CCD., CPLA., CPA",
-                "H. Arif Sugiarto, S.H., M.Pd., CPA.",
-                "apt. Bardaeni, S.Farm., M.H., CPA.",
-                "Amiyati, S.H., CPA.",
-                "Handiyan Arniko Pratama, S.H.",
-                "Wawan, S.S., CPA.",
-                "Deborah, S.H., CPA.",
-                "Iman Susanto, CPP., C.CPL.",
-                "Moch. Untung, S.H.",
-                "Andi Muhammad Akbar, S.H.",
-                "Lenni Latif, S.H."
-            ]
+                "Wendy Asdiyanto Pujitomo, CPP.",
+                "Syahrianti Adina Sinaga, CPP.",
+                "Akhmad mustagfiri, CPP.",
+                "Dian Erniawati, CPP.",
+                "Ali Rosidi, CPP.",
+                "INDAH SUANA SIANTURI, CPP.",
+                "Nesya Rahmawati, CPP.",
+                "H. Muhammad Rizki Jamaludin, CPP.",
+                "Alfin Nurfitriyani, CPP.",
+                "Melani Zahra Sabilla, CPP.",
+                "Gunawan Sholehudin, CPP.",
+                "Nani Sugiharti, CPP.",
+                "Ahmad Faridin, CPP.",
+                "OKTORIANUS LASE, S.Th., M.Pd, CPP.",
+                "MUHAMAD YANUAR SANJAYA, S.KM., CPP.",
+                "Rahadyan Nuansa Fadila, S.T, CLA, C.Neg., CPP.",
+                "Raden Riska Agustina, SH, C. Med, CLA., CPP.",
+                "Fajar Permana, S.H., C.Med., CLA., CPP.",
+                "Imas Masitoh, CPP.",
+                "MUHAMMAD ZAEDAN AZLAANI. S.H., CPP." ]
+                
+          
         };
 
         var DATA_PESERTA = [];
@@ -617,7 +609,7 @@
             var list = q ? DATA_PESERTA.filter(function (n) { return n.toLowerCase().includes(q); }) : DATA_PESERTA;
 
             countEl.textContent = list.length;
-            labelEl.textContent = q ? 'Hasil pencarian "' + document.getElementById('searchInput').value.trim() + '"' : 'Daftar Peserta — Pendidikan Khusus Profesi Advokat';
+            labelEl.textContent = q ? 'Hasil pencarian "' + document.getElementById('searchInput').value.trim() + '"' : 'Daftar Peserta — Batch ' + BATCH_NUM;
 
             tb.innerHTML = '';
 
@@ -630,7 +622,8 @@
                     var row = document.createElement('div');
                     row.className = 'table-row';
                     row.style.animationDelay = Math.min(i * 0.02, 0.35) + 's';
-                    row.innerHTML = '<div class="row-no">' + (i + 1) + '</div><div class="row-nama">' + hl(nama, q) + '</div>';
+                    var origIdx = DATA_PESERTA.indexOf(nama);
+                    row.innerHTML = '<div class="row-no">' + (origIdx + 6001) + '</div><div class="row-nama">' + hl(nama, q) + '</div>';
                     tb.appendChild(row);
                 });
             }
@@ -641,10 +634,10 @@
             DATA_PESERTA = batch.peserta || [];
 
             document.getElementById('heroTitle').textContent = batch.name || 'Sertifikasi';
-            document.getElementById('heroDesc').textContent = 'Daftar resmi ' + DATA_PESERTA.length + ' peserta sertifikasi Pendidikan Khusus Profesi Advokat PERADI KHARISMA.';
+            document.getElementById('heroDesc').textContent = 'Daftar resmi ' + DATA_PESERTA.length + ' peserta sertifikasi Batch ' + BATCH_NUM + ' PERADI KHARISMA.';
             document.getElementById('statTotal').textContent = DATA_PESERTA.length;
             document.getElementById('statTahun').textContent = batch.year || '-';
-            document.title = 'Pendidikan Khusus Profesi Advokat — ' + batch.name + ' — PERADI KHARISMA';
+            document.title = 'Batch ' + BATCH_NUM + ' — ' + batch.name + ' — PERADI KHARISMA';
 
             var db = document.getElementById('driveButtons');
             db.innerHTML = '';

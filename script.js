@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (shareFromModalBtn) {
             shareFromModalBtn.addEventListener('click', function() {
                 const shareData = {
-                    title: 'PERADI KHARISMA — Legalitas Resmi',
+                    title: 'PERADI Kharisma — Legalitas Resmi',
                     text: modalTitleLegal ? modalTitleLegal.textContent : 'Dokumen Legalitas PERADI Kharisma',
                     url: window.location.href
                 };

@@ -110,7 +110,7 @@ section[id] { scroll-margin-top: var(--navbar-h); }
 
 /* ===== SECTION SHARED ===== */
 .section-header { text-align: center; margin-bottom: 2.5rem; }
-.section-tag { font-family: 'Montserrat', sans-serif; color: var(--secondary-dark); text-transform: uppercase; letter-spacing: 4px; font-size: 0.68rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
+.section-tag { font-family: 'Montserrat', sans-serif; color: var(--secondary-dark); text-transform: uppercase; letter-spacing: 4px; font-size: 1.5 rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
 .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--primary); position: relative; display: inline-block; line-height: 1.2; }
 .section-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 48px; height: 2px; background: var(--secondary); border-radius: 2px; }
 
